@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import YouTubeEmbed from '@/components/YouTubeEmbed';
 
 const Page = () => {
   return (
@@ -9,11 +10,22 @@ const Page = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl font-extrabold text-white mb-6">
-              SSH 키 모니터링
+              SSH 키 감사
             </h1>
-            <p className="text-xl text-gray-400 mb-8">
-              전체 Linux 인프라에서 SSH 키를 찾고 감사하세요.
-              악성 키와 무단 접근을 방지하여 시스템 보안을 강화합니다.
+            <p className="text-2xl text-gray-300 mb-4">
+              SSH 키를 추적하고,
+            </p>
+            <p className="text-2xl text-gray-300 mb-8">
+              누가 사용하는지 파악하세요
+            </p>
+            <p className="text-lg text-gray-400 mb-6">
+              SSH 키는 무단 접근과 은밀한 측면 이동을 포함하여 Linux에 심각한 위험을 초래합니다. Sandfly는 에이전트 없이 중요한 SSH 자산을 추적합니다. 우리는 이 기능을 SSH Hunter라고 부릅니다.
+            </p>
+            <p className="text-lg text-gray-400 mb-6">
+              SSH Hunter를 사용하면 모든 SSH 공개 키가 추적되고 추적됩니다. 보안 팀은 키가 어디에서 사용되고 있는지, 누가 사용하고 있는지, 언제 처음 나타났는지, 모든 시스템에서 즉시 무엇에 액세스할 수 있는지 확인할 수 있습니다. 또한 침해 시 심각한 측면 이동 위험을 나타내는 암호화되지 않은 SSH 개인 키를 탐지합니다.
+            </p>
+            <p className="text-lg text-gray-400 mb-8">
+              SSH 보안 구역을 사용하여 보안 팀은 키가 작동할 수 있는 시스템을 더욱 제한하고 승인되지 않은 새 키가 나타날 때 알림을 받을 수 있습니다. 신비한 사용자 키와 백도어 키는 오래 머물 수 없습니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
@@ -33,378 +45,252 @@ const Page = () => {
         </div>
       </section>
 
-      {/* Key Features Section */}
+      {/* Video Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-4">핵심 SSH 키 모니터링 기능</h2>
-            <p className="text-xl text-gray-400">포괄적인 SSH 키 가시성과 보안 제어</p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            
-            {/* Comprehensive Discovery */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm border">
-              <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 text-center">포괄적 탐지</h3>
-              <p className="text-gray-400 text-center mb-4">
-                모든 시스템에서 SSH 키를 자동으로 찾아내고 인벤토리를 구축합니다.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">authorized_keys 파일 스캔</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">개인 키 파일 탐지</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">숨겨진 키 위치 검색</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Key Analysis */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm border">
-              <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 text-center">키 분석</h3>
-              <p className="text-gray-400 text-center mb-4">
-                각 SSH 키의 상세한 정보와 보안 상태를 분석합니다.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">키 강도 평가</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">암호화 상태 확인</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">마지막 사용 시간 추적</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Malicious Key Detection */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm border">
-              <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 text-center">악성 키 탐지</h3>
-              <p className="text-gray-400 text-center mb-4">
-                공격자가 설치한 의심스러운 SSH 키를 자동으로 탐지합니다.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">무단 키 설치 탐지</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">비밀번호 없는 키 식별</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">의심스러운 키 옵션 검출</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Access Tracking */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm border">
-              <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 text-center">접근 추적</h3>
-              <p className="text-gray-400 text-center mb-4">
-                SSH 키 사용 현황을 실시간으로 모니터링하고 추적합니다.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">로그인 시도 모니터링</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">비정상 접근 패턴 탐지</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">사용량 통계 제공</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Compliance Reporting */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm border">
-              <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 text-center">규정 준수 보고</h3>
-              <p className="text-gray-400 text-center mb-4">
-                SSH 키 관리 현황에 대한 상세한 보고서를 생성합니다.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">키 인벤토리 보고서</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">보안 정책 준수 상태</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">감사 추적 로그</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Automated Response */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm border">
-              <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 text-center">자동 대응</h3>
-              <p className="text-gray-400 text-center mb-4">
-                위험한 SSH 키를 탐지하면 자동으로 대응 조치를 실행합니다.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">즉시 알림 발송</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">자동 격리 조치</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">워크플로우 통합</span>
-                </li>
-              </ul>
+            <h2 className="text-3xl font-bold text-white mb-4">SSH 키 헌팅</h2>
+            <p className="text-xl text-gray-400 mb-8">
+              파이어링 레인지에서 침해된 SSH 키를 헌팅하는 Sandfly와 함께하세요.
+            </p>
+            <div className="max-w-4xl mx-auto">
+              <YouTubeEmbed 
+                videoId="y25qzP9Bi5A" 
+                title="Linux에서 Sandfly로 침해된 SSH 키 탐지 및 조사" 
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Detection Scenarios */}
+      {/* Use Cases Section */}
       <section className="py-20 bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-4">탐지 시나리오</h2>
-            <p className="text-xl text-gray-400">Sandfly가 탐지하는 SSH 키 관련 위협들</p>
+            <h2 className="text-3xl font-bold text-white mb-4">사용 사례</h2>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             
-            {/* Backdoor Keys */}
-            <div className="bg-gray-900 p-6 rounded-lg">
-              <h3 className="text-lg font-bold text-white mb-3">백도어 키</h3>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>• 공격자가 설치한 지속성 키</li>
-                <li>• 숨겨진 위치의 키</li>
-                <li>• 비정상적인 권한을 가진 키</li>
-                <li>• 의심스러운 명령 제한</li>
-              </ul>
+            {/* Use Case 1 */}
+            <div className="bg-gray-900 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">01.</div>
+              <h3 className="text-xl font-bold text-white mb-4">SSH 키가 어디에 있는지 알기</h3>
+              <p className="text-gray-400">
+                SSH 키가 어느 시스템에 있는지 찾는 것은 어려울 수 있습니다. Sandfly는 모든 Linux 시스템에서 SSH 키를 자동으로 찾아 완전한 인벤토리를 생성합니다. 키가 어디에 설치되어 있는지, 누가 사용하고 있는지, 언제 사용되었는지 즉시 알 수 있습니다.
+              </p>
             </div>
 
-            {/* Weak Keys */}
-            <div className="bg-gray-900 p-6 rounded-lg">
-              <h3 className="text-lg font-bold text-white mb-3">취약한 키</h3>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>• 암호화되지 않은 개인 키</li>
-                <li>• 약한 암호화 알고리즘</li>
-                <li>• 짧은 키 길이</li>
-                <li>• 기본 키 쌍</li>
-              </ul>
+            {/* Use Case 2 */}
+            <div className="bg-gray-900 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">02.</div>
+              <h3 className="text-xl font-bold text-white mb-4">임베디드 장치 보호</h3>
+              <p className="text-gray-400">
+                임베디드 장치는 종종 기본 SSH 키로 출하되거나 쉽게 추측할 수 있는 키를 가지고 있습니다. Sandfly는 이러한 장치에서 위험한 키를 탐지하고 보안 팀이 이를 교체하거나 비활성화할 수 있도록 경고합니다.
+              </p>
             </div>
 
-            {/* Stale Keys */}
-            <div className="bg-gray-900 p-6 rounded-lg">
-              <h3 className="text-lg font-bold text-white mb-3">오래된 키</h3>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>• 장기간 미사용 키</li>
-                <li>• 퇴사자의 키</li>
-                <li>• 만료된 임시 키</li>
-                <li>• 정책 위반 키</li>
-              </ul>
+            {/* Use Case 3 */}
+            <div className="bg-gray-900 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">03.</div>
+              <h3 className="text-xl font-bold text-white mb-4">Linux 어플라이언스 모니터링</h3>
+              <p className="text-gray-400">
+                Linux 기반 어플라이언스는 관리자가 SSH 키가 설치되었는지 알지 못하는 경우가 많습니다. Sandfly는 이러한 시스템을 스캔하여 숨겨진 SSH 키를 찾고 무단 액세스를 방지합니다.
+              </p>
             </div>
 
-            {/* Privilege Escalation */}
-            <div className="bg-gray-900 p-6 rounded-lg">
-              <h3 className="text-lg font-bold text-white mb-3">권한 상승</h3>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>• root 계정 키 무단 추가</li>
-                <li>• 서비스 계정 키 남용</li>
-                <li>• sudo 권한 우회</li>
-                <li>• 시스템 계정 키 설치</li>
-              </ul>
+            {/* Use Case 4 */}
+            <div className="bg-gray-900 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">04.</div>
+              <h3 className="text-xl font-bold text-white mb-4">키 및 서버 위험</h3>
+              <p className="text-gray-400">
+                약한 SSH 키나 손상된 서버는 전체 네트워크에 위험을 초래할 수 있습니다. Sandfly는 위험한 키 구성을 식별하고 보안 팀이 위험을 완화하기 전에 경고합니다.
+              </p>
+            </div>
+
+            {/* Use Case 5 */}
+            <div className="bg-gray-900 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">05.</div>
+              <h3 className="text-xl font-bold text-white mb-4">보안 구역</h3>
+              <p className="text-gray-400">
+                SSH 보안 구역을 사용하면 특정 키가 액세스할 수 있는 시스템을 제한할 수 있습니다. 이를 통해 측면 이동을 방지하고 침해 시 공격자의 범위를 제한할 수 있습니다.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gray-800">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-4">SSH 키 모니터링의 이점</h2>
-            <p className="text-xl text-gray-400">조직의 보안 태세 강화</p>
+            <h2 className="text-3xl font-bold text-white mb-4">SSH 자격증명 자동 추적 및 감사</h2>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             
-            {/* Security Benefits */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm">
-              <h3 className="text-xl font-bold text-white mb-4">보안 이점</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-cyan-600 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <div>
-                    <strong className="text-white">무단 접근 방지:</strong>
-                    <span className="text-gray-400"> 권한 없는 SSH 키를 즉시 탐지하고 제거</span>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-cyan-600 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <div>
-                    <strong className="text-white">지속성 공격 차단:</strong>
-                    <span className="text-gray-400"> 공격자의 백도어 키 설치를 사전 차단</span>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-cyan-600 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <div>
-                    <strong className="text-white">측면 이동 방지:</strong>
-                    <span className="text-gray-400"> 키 기반 측면 이동 공격 차단</span>
-                  </div>
-                </li>
-              </ul>
+            {/* Benefit 1 */}
+            <div className="bg-gray-800 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">01.</div>
+              <h3 className="text-xl font-bold text-white mb-4">무단 액세스 방지</h3>
+              <p className="text-gray-400">
+                Sandfly는 권한 없는 SSH 키와 악성 키를 탐지하여 무단 액세스를 방지합니다. 공격자가 백도어를 만들기 위해 설치한 키를 빠르게 식별할 수 있습니다.
+              </p>
             </div>
 
-            {/* Operational Benefits */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm">
-              <h3 className="text-xl font-bold text-white mb-4">운영 이점</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-cyan-600 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <div>
-                    <strong className="text-white">중앙 집중식 관리:</strong>
-                    <span className="text-gray-400"> 모든 SSH 키를 한 곳에서 관리</span>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-cyan-600 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <div>
-                    <strong className="text-white">자동화된 관리:</strong>
-                    <span className="text-gray-400"> 수동 키 관리 프로세스 자동화</span>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-cyan-600 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <div>
-                    <strong className="text-white">규정 준수:</strong>
-                    <span className="text-gray-400"> 감사 요구사항 충족을 위한 상세 보고</span>
-                  </div>
-                </li>
-              </ul>
+            {/* Benefit 2 */}
+            <div className="bg-gray-800 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">02.</div>
+              <h3 className="text-xl font-bold text-white mb-4">구성 오류 탐지</h3>
+              <p className="text-gray-400">
+                SSH 자격증명 모니터링을 자동화하여 조직을 침해에 노출시킬 수 있는 오류 가능성을 줄입니다. Sandfly는 SSH 자격증명이 지속적으로 모니터링되고 추적되도록 보장합니다.
+              </p>
+            </div>
+
+            {/* Benefit 3 */}
+            <div className="bg-gray-800 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">03.</div>
+              <h3 className="text-xl font-bold text-white mb-4">비교할 수 없는 성능</h3>
+              <p className="text-gray-400">
+                우리 플랫폼은 기존 인프라와 원활하게 통합되어 시스템 성능에 영향을 주지 않고 보호 기능을 제공합니다. SSH 키 추적은 즉각적이고 자동적이며 빠릅니다.
+              </p>
+            </div>
+
+            {/* Benefit 4 */}
+            <div className="bg-gray-800 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">04.</div>
+              <h3 className="text-xl font-bold text-white mb-4">규정 준수 및 자산 추적</h3>
+              <p className="text-gray-400">
+                Sandfly는 SSH 환경에 대한 깊은 가시성을 제공하여 규정 준수 및 자산 추적을 단순화하고 감사 준비 태세를 유지할 수 있도록 보장합니다.
+              </p>
+            </div>
+
+            {/* Benefit 5 */}
+            <div className="bg-gray-800 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">05.</div>
+              <h3 className="text-xl font-bold text-white mb-4">확장 가능한 솔루션</h3>
+              <p className="text-gray-400">
+                기업이 확장됨에 따라 우리의 에이전트리스 솔루션이 함께 확장되어 SSH 환경의 보안을 유지합니다. SSH 자격증명 침해의 위험이 일관되게 모니터링되고 관리됩니다.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Additional Features Section */}
+      <section className="py-20 bg-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            
+            {/* Track SSH Key Use */}
+            <div className="mb-20">
+              <h2 className="text-3xl font-bold text-white mb-8">SSH 키 사용 및 남용 추적</h2>
+              <p className="text-lg text-gray-400 mb-6">
+                Sandfly는 에이전트리스 추적을 통해 SSH 키가 어떻게 사용되고 있는지 완전한 가시성을 제공합니다. 우리의 고급 모니터링 기능을 통해 키 활동을 실시간으로 추적하고 의심스러운 행동을 식별할 수 있습니다.
+              </p>
+              <div className="mb-8">
+                <img 
+                  src="https://www.datocms-assets.com/56687/1721096022-ssh-host-violation-view.png" 
+                  alt="SSH 보안 구역 위반" 
+                  className="w-full h-auto rounded-lg shadow-lg mb-6"
+                  loading="lazy"
+                />
+              </div>
+              <p className="text-lg text-gray-400 mb-8">
+                SSH 보안 구역을 통해 특정 키가 액세스할 수 있는 시스템을 제한하여 측면 이동을 방지하고 침해 시 공격 범위를 제한할 수 있습니다. 이러한 제어를 통해 SSH 키 관리에 대한 세분화된 접근 방식을 제공합니다.
+              </p>
+            </div>
+
+            {/* Rapid Incident Response */}
+            <div className="mb-20">
+              <h2 className="text-3xl font-bold text-white mb-8">신속한 사고 대응</h2>
+              <p className="text-lg text-gray-400 mb-6">
+                보안 사고가 발생했을 때 Sandfly는 SSH 키와 관련된 활동을 신속하게 식별하고 분석할 수 있는 도구를 제공합니다. 우리의 포렌식 기능을 통해 침해의 범위를 빠르게 파악하고 적절한 대응 조치를 취할 수 있습니다.
+              </p>
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <img 
+                  src="https://www.datocms-assets.com/56687/1707607862-screenshot-2024-02-11-at-12-27-54-pm.png" 
+                  alt="SSH 중복 키 알림" 
+                  className="w-full h-auto rounded-lg shadow-lg"
+                  loading="lazy"
+                />
+                <img 
+                  src="https://www.datocms-assets.com/56687/1707609245-screenshot-2024-02-11-at-12-52-32-pm.png" 
+                  alt="SSH 키 감사 세부 정보" 
+                  className="w-full h-auto rounded-lg shadow-lg"
+                  loading="lazy"
+                />
+              </div>
+              <p className="text-lg text-gray-400 mb-8">
+                실시간 모니터링과 히스토리 분석을 통해 공격자가 어떤 시스템에 액세스했는지, 어떤 키를 사용했는지, 언제 활동이 시작되었는지 정확히 파악할 수 있습니다.
+              </p>
+            </div>
+
+            {/* SSH Key Auditing Made Easy */}
+            <div>
+              <h2 className="text-3xl font-bold text-white mb-8">SSH 키 감사가 쉬워졌습니다</h2>
+              <p className="text-lg text-gray-400 mb-6">
+                Sandfly는 SSH 키 동작을 모니터링하고 위험 평가를 자동화하여 SSH 키 감사를 단순화합니다. 우리의 지능형 분석 엔진은 정상적인 키 사용 패턴을 학습하고 이상 징후를 자동으로 플래그합니다.
+              </p>
+              <p className="text-lg text-gray-400 mb-8">
+                포괄적인 보고 기능을 통해 감사 요구사항을 충족하고 규정 준수를 입증할 수 있는 상세한 문서를 제공합니다. SSH 키 인벤토리부터 사용 통계까지 모든 정보를 한 곳에서 확인할 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Try SSH Hunter CTA */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg p-12 text-center">
+            <h2 className="text-3xl font-bold text-white mb-6">SSH Hunter 체험해보기</h2>
+            <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
+              숨겨진 위협이 네트워크 보안을 침해하지 않도록 하세요. 지금 무료 체험을 시작하세요.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link 
+                href="/get-sandfly" 
+                className="bg-white text-cyan-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg inline-block"
+              >
+                체험판 라이선스 받기
+              </Link>
+              <Link 
+                href="/get-sandfly" 
+                className="border-2 border-white text-white hover:bg-white hover:text-cyan-600 px-8 py-4 rounded-lg font-semibold text-lg inline-block"
+              >
+                무료 라이선스 받기
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
       <section className="bg-gray-900 py-20">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">
-            SSH 키 보안을 강화하세요
+            오늘 SSH 키를 감사하세요
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Sandfly의 포괄적인 SSH 키 모니터링으로 인프라의 모든 SSH 키를 안전하게 관리하세요. 
-            무단 접근과 지속성 공격을 사전에 차단할 수 있습니다.
+            Sandfly의 강력한 SSH 키 모니터링으로 인프라의 모든 SSH 키를 완전히 제어하세요. 
+            무단 접근을 방지하고 보안 태세를 강화할 수 있습니다.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/get-sandfly" 
-              className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block"
-            >
-              무료 체험 시작
-            </Link>
-            <Link 
-              href="/contact-us" 
-              className="border border-gray-400 hover:border-gray-300 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block"
-            >
-              전문가와 상담
-            </Link>
+          <Link 
+            href="/get-sandfly" 
+            className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block mb-8"
+          >
+            지금 호스트 보호하기
+          </Link>
+          <div className="flex justify-center">
+            <img 
+              src="https://sandflysecurity.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fveracode-verified-standard-white.d24ef83e.png&w=384&q=75" 
+              alt="Veracode Verified Standard" 
+              width={160} 
+              height={42}
+              className="opacity-80"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -413,4 +299,3 @@ const Page = () => {
 };
 
 export default Page;
-

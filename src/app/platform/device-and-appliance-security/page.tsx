@@ -3,33 +3,33 @@ import { ShieldCheckIcon, CpuChipIcon, ServerIcon, WifiIcon, CircleStackIcon, Co
 
 const features = [
   {
-    name: 'Agentless by Design',
-    description: 'Our technology eliminates the need to install software on monitored devices, simplifying management and reducing risk for critical systems that must always work.',
+    name: '에이전트리스 설계',
+    description: '모니터링 대상 장치에 소프트웨어를 설치할 필요가 없어 관리를 단순화하고 항상 작동해야 하는 중요 시스템의 위험을 줄입니다.',
     icon: ShieldCheckIcon,
   },
   {
-    name: 'Minimal Performance Impact',
-    description: 'Since no agents run continuously, Sandfly has little to no effect on device performance or stability, which is essential for critical infrastructure applications.',
+    name: '최소한의 성능 영향',
+    description: '에이전트가 지속적으로 실행되지 않으므로 Sandfly는 장치 성능이나 안정성에 거의 영향을 주지 않으며, 이는 중요 인프라 애플리케이션에 필수적입니다.',
     icon: CpuChipIcon,
   },
   {
-    name: 'Full EDR Capabilities',
-    description: 'Edge devices get the same protection as full servers, including advanced drift detection to find evasive and novel intruder activity.',
+    name: '완전한 EDR 기능',
+    description: '엣지 장치도 전체 서버와 동일한 보호를 받으며, 회피적이고 새로운 침입자 활동을 찾는 고급 드리프트 탐지 기능을 포함합니다.',
     icon: ServerIcon,
   },
   {
-    name: 'Monitor Attacker Havens',
-    description: 'Attackers target unprotected edge devices that act as chokepoints for valuable data. Sandfly lets you operate where the attackers are.',
+    name: '공격자 은신처 모니터링',
+    description: '공격자들은 귀중한 데이터의 병목 지점 역할을 하는 보호되지 않은 엣지 장치를 표적으로 삼습니다. Sandfly를 통해 공격자가 있는 곳에서 작업할 수 있습니다.',
     icon: WifiIcon,
   },
   {
-    name: 'Effortless Scalability',
-    description: 'Avoid the complexity of managing individual agents. Sandfly is ideal for organizations with extensive networking infrastructure and distributed systems.',
+    name: '손쉬운 확장성',
+    description: '개별 에이전트 관리의 복잡성을 피할 수 있습니다. Sandfly는 광범위한 네트워킹 인프라와 분산 시스템을 보유한 조직에 이상적입니다.',
     icon: CircleStackIcon,
   },
   {
-    name: 'Wide Device Support',
-    description: 'We protect a vast range of Linux-based systems, from network gear and IoT devices to industrial controls and robotics.',
+    name: '광범위한 장치 지원',
+    description: '네트워크 장비와 IoT 장치부터 산업용 제어 장치와 로봇까지 다양한 Linux 기반 시스템을 보호합니다.',
     icon: CogIcon,
   },
 ];
@@ -40,9 +40,9 @@ const Page = () => {
       <main>
         <section className="text-center py-20 px-4 bg-black">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Find Intruders Lurking on the Edges</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">엣지에 숨어있는 침입자를 찾아내세요</h1>
             <p className="text-lg md:text-xl text-gray-300 leading-8">
-              Nation-state actors and Advanced Persistent Threat (APT) groups increasingly target networking gear and Linux-based embedded devices. Detecting threats on these systems is essential to safeguard critical infrastructure.
+              국가 지원 해커와 지능형 지속 위협(APT) 그룹은 점점 더 네트워킹 장비와 Linux 기반 임베디드 장치를 표적으로 삼고 있습니다. 이러한 시스템에서 위협을 탐지하는 것은 중요 인프라를 보호하는 데 필수적입니다.
             </p>
           </div>
         </section>
@@ -50,8 +50,8 @@ const Page = () => {
         <section className="py-20 px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-cyan-400">Secure All Your Linux Devices</h2>
-              <p className="mt-4 text-lg text-gray-400">Sandfly has the industry&apos;s widest compatibility across Linux devices.</p>
+              <h2 className="text-3xl font-bold text-cyan-400">모든 Linux 장치를 보호하세요</h2>
+              <p className="mt-4 text-lg text-gray-400">Sandfly는 업계에서 가장 광범위한 Linux 장치 호환성을 제공합니다.</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
               {features.map((feature) => (
@@ -67,9 +67,9 @@ const Page = () => {
 
         <section className="py-20 px-4 bg-gray-800">
           <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Linux Threats Unmasked</h2>
+            <h2 className="text-3xl font-bold mb-6">Linux 위협 탐지 실전</h2>
             <p className="text-lg text-gray-300 mb-8">
-              Ride along with Sandfly as we hunt for a compromised embedded Linux device using drift detection.
+              드리프트 탐지를 사용하여 손상된 임베디드 Linux 장치를 추적하는 Sandfly의 실제 작업을 함께 확인해보세요.
             </p>
             <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-2xl">
               <iframe 

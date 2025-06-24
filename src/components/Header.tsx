@@ -23,6 +23,24 @@ const Header = () => {
 
   return (
     <header className="bg-black sticky top-0 z-50 border-b border-gray-800">
+      {/* 첫 번째 줄: Under Attack, Support, Contact Us */}
+      <div className="hidden lg:block border-b border-gray-800">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex justify-end py-2 space-x-4 text-sm">
+            <Link href="/under-attack" className="font-semibold leading-6 text-red-400 hover:text-red-300">
+              공격을 받고 있나요?
+            </Link>
+            <Link href="/support" className="font-semibold leading-6 text-white hover:text-sandfly-yellow">
+              지원
+            </Link>
+            <Link href="/contact-us" className="font-semibold leading-6 text-white hover:text-sandfly-yellow">
+              내가 연락하기
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* 두 번째 줄: 로고, 메인 메뉴, Sandfly 시작하기 */}
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Logo />
@@ -76,21 +94,14 @@ const Header = () => {
             </Popover>
           ))}
         </Popover.Group>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-4">
-            <Link href="/under-attack" className="text-sm font-semibold leading-6 text-red-400 hover:text-red-300">
-                공격을 받고 있나요?
-            </Link>
-            <Link href="/support" className="text-sm font-semibold leading-6 text-white hover:text-sandfly-yellow">
-                지원
-            </Link>
-            <Link href="/contact-us" className="text-sm font-semibold leading-6 text-white hover:text-sandfly-yellow">
-                내가 연락하기
-            </Link>
-            <Link href="/get-sandfly" className="rounded-md bg-sandfly-yellow px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sandfly-yellow">
-                Sandfly 시작하기
-            </Link>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <Link href="/get-sandfly" className="rounded-md bg-sandfly-yellow px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sandfly-yellow">
+            Sandfly 시작하기
+          </Link>
         </div>
       </nav>
+
+      {/* 모바일 메뉴 */}
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-50" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-700">

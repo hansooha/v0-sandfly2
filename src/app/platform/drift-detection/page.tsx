@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import YouTubeEmbed from '@/components/YouTubeEmbed';
 
 const Page = () => {
   return (
@@ -11,9 +12,14 @@ const Page = () => {
             <h1 className="text-5xl font-extrabold text-white mb-6">
               드리프트 탐지
             </h1>
-            <p className="text-xl text-gray-400 mb-8">
-              시스템의 무단 변경을 즉시 탐지하세요.
-              알려진 양호한 기준선에서 벗어난 모든 변화를 실시간으로 모니터링하여 보안 위험을 사전에 차단합니다.
+            <p className="text-2xl text-gray-300 mb-8">
+              즉석 Linux 기준선 및 드리프트 탐지.
+            </p>
+            <p className="text-lg text-gray-400 mb-6">
+              Sandfly는 Linux 시스템의 기준선을 빠르게 설정한 다음 드리프트와 무단 변경을 탐지할 수 있습니다. 이는 파일 무결성 모니터링과 시스템이 변조되지 않았음을 보장하는 데 완벽합니다. 또한 시스템이 원래 배포에서 잘못 구성되었을 수 있는 구성 드리프트도 탐지할 수 있습니다.
+            </p>
+            <p className="text-lg text-gray-400 mb-8">
+              우리의 에이전트리스 접근 방식은 기준선을 생성할 때 Linux 어플라이언스와 임베디드 장치에 전혀 영향을 주지 않음을 의미합니다. Sandfly 드리프트 탐지는 수천 대의 머신이 있는 기업 환경으로 확장되며 에어갭 네트워크 내에서 안전하게 작동합니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
@@ -33,424 +39,183 @@ const Page = () => {
         </div>
       </section>
 
-      {/* What is Drift Detection */}
+      {/* Video Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold text-white mb-6">드리프트 탐지란?</h2>
-                <p className="text-lg text-gray-400 mb-6">
-                  드리프트 탐지는 알려진 양호한 시스템의 기준선을 생성하고, 이후 발생하는 변경사항을 찾아내는 과정입니다. 
-                  Sandfly는 Linux 시스템의 기준선을 생성하고, 무언가 변경되면 즉시 알림을 제공합니다.
-                </p>
-                <p className="text-lg text-gray-400 mb-6">
-                  이는 악성 활동, 무단 변경, 설정 오류를 탐지하는 강력한 방법입니다. 
-                  특히 중요한 시스템이나 규제 환경에서 변경사항을 추적하고 통제하는데 필수적입니다.
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-cyan-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-300">시스템 무결성 보장</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-cyan-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-300">규정 준수 지원</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-cyan-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-300">변경 추적 및 감사</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="bg-gradient-to-r from-cyan-500 to-blue-600 p-8 rounded-lg text-white">
-                <h3 className="text-2xl font-bold mb-4">주요 모니터링 영역</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    <span>시스템 파일 및 디렉터리</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                    <span>사용자 및 그룹 변경</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <span>시스템 서비스 상태</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                    </svg>
-                    <span>프로세스 및 네트워크</span>
-                  </div>
-                </div>
-              </div>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-white mb-4">Synology NAS 장치에서 맬웨어 찾기</h2>
+            <p className="text-xl text-gray-400 mb-8">
+              드리프트 탐지를 사용하여 Synology NAS 장치에서 맬웨어를 찾는 Sandfly와 함께하세요.
+            </p>
+            <div className="max-w-4xl mx-auto">
+              <YouTubeEmbed 
+                videoId="pZMOeVHEanU" 
+                title="Synology NAS DSM 어플라이언스에서 맬웨어 및 랜섬웨어 찾기" 
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Key Features Section */}
+      {/* Use Cases Section */}
       <section className="py-20 bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-4">핵심 드리프트 탐지 기능</h2>
-            <p className="text-xl text-gray-400">포괄적이고 정밀한 시스템 변경 모니터링</p>
+            <h2 className="text-3xl font-bold text-white mb-4">사용 사례</h2>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             
-            {/* File System Monitoring */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm border">
-              <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2zm9-9h.01M12 8v4m0 0h4.5m-4.5 0H7.5" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 text-center">파일 시스템 모니터링</h3>
-              <p className="text-gray-400 text-center mb-4">
-                중요한 시스템 파일과 디렉터리의 변경사항을 실시간으로 추적합니다.
+            {/* Use Case 1 */}
+            <div className="bg-gray-900 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">01.</div>
+              <h3 className="text-xl font-bold text-white mb-4">어플라이언스 기준선 설정 및 모니터링</h3>
+              <p className="text-gray-400">
+                Linux 어플라이언스는 종종 모니터링이나 변조 여부를 보여주는 방법이 없습니다. Sandfly는 이러한 시스템의 기준선을 설정하고 침해되거나 잘못 구성되었는지 탐지할 수 있습니다.
               </p>
-              <ul className="space-y-2">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">파일 생성, 수정, 삭제</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">권한 및 소유권 변경</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">파일 해시 변경 탐지</span>
-                </li>
-              </ul>
             </div>
 
-            {/* User & Group Changes */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm border">
-              <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 text-center">사용자 및 그룹 변경</h3>
-              <p className="text-gray-400 text-center mb-4">
-                시스템 계정, 권한, 그룹 멤버십의 모든 변경사항을 추적합니다.
+            {/* Use Case 2 */}
+            <div className="bg-gray-900 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">02.</div>
+              <h3 className="text-xl font-bold text-white mb-4">구성 드리프트 탐지</h3>
+              <p className="text-gray-400">
+                Sandfly의 드리프트 탐지를 사용하여 중요한 구성 파일과 시스템 설정이 변경되지 않은 상태로 유지되도록 하거나 변경될 때 알림을 받을 수 있습니다.
               </p>
-              <ul className="space-y-2">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">새 계정 생성</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">권한 승격</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">그룹 멤버십 변경</span>
-                </li>
-              </ul>
             </div>
 
-            {/* Service Configuration */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm border">
-              <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 text-center">서비스 설정 모니터링</h3>
-              <p className="text-gray-400 text-center mb-4">
-                시스템 서비스의 상태와 설정 변경을 실시간으로 감시합니다.
+            {/* Use Case 3 */}
+            <div className="bg-gray-900 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">03.</div>
+              <h3 className="text-xl font-bold text-white mb-4">파일 무결성 모니터링</h3>
+              <p className="text-gray-400">
+                Sandfly를 사용하여 중요한 시스템 파일과 디렉터리의 무단 변경을 모니터링하세요. 여기에는 시스템 바이너리, 구성 파일 및 기타 중요한 자산 모니터링이 포함됩니다.
               </p>
-              <ul className="space-y-2">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">서비스 시작/중지</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">설정 파일 변경</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">자동 시작 설정 변경</span>
-                </li>
-              </ul>
             </div>
 
-            {/* Network Changes */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm border">
-              <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 text-center">네트워크 변경 탐지</h3>
-              <p className="text-gray-400 text-center mb-4">
-                네트워크 설정과 연결 상태의 변경사항을 모니터링합니다.
+            {/* Use Case 4 */}
+            <div className="bg-gray-900 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">04.</div>
+              <h3 className="text-xl font-bold text-white mb-4">규정 준수 및 감사</h3>
+              <p className="text-gray-400">
+                드리프트 탐지는 시스템이 승인된 구성 상태를 유지했다는 증거를 제공하여 규정 준수 요구사항을 지원합니다.
               </p>
-              <ul className="space-y-2">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">새 네트워크 리스너</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">방화벽 규칙 변경</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">네트워크 인터페이스 설정</span>
-                </li>
-              </ul>
             </div>
 
-            {/* Process Monitoring */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm border">
-              <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 text-center">프로세스 모니터링</h3>
-              <p className="text-gray-400 text-center mb-4">
-                실행 중인 프로세스의 변화와 새로운 프로세스 시작을 추적합니다.
+            {/* Use Case 5 */}
+            <div className="bg-gray-900 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">05.</div>
+              <h3 className="text-xl font-bold text-white mb-4">에어갭 및 보안 네트워크</h3>
+              <p className="text-gray-400">
+                Sandfly의 에이전트리스 접근 방식은 기존 모니터링 솔루션이 작동할 수 없는 에어갭 환경에서 작동할 수 있음을 의미합니다.
               </p>
-              <ul className="space-y-2">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">새 프로세스 시작</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">프로세스 종료</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">실행 권한 변경</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Custom Policies */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm border">
-              <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 text-center">맞춤형 정책</h3>
-              <p className="text-gray-400 text-center mb-4">
-                조직의 요구사항에 맞는 맞춤형 드리프트 탐지 정책을 설정할 수 있습니다.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">유연한 규칙 설정</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">예외 처리</span>
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-cyan-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-gray-300">우선순위 지정</span>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-20 bg-gray-800">
+      {/* Features Section */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-4">작동 원리</h2>
-            <p className="text-xl text-gray-400">간단하고 효과적인 4단계 프로세스</p>
+            <h2 className="text-3xl font-bold text-white mb-4">드리프트 탐지 기능</h2>
+            <p className="text-xl text-gray-400">Sandfly 드리프트 탐지는 Linux 시스템에 대한 포괄적인 모니터링과 알림을 제공합니다.</p>
           </div>
           
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              
-              {/* Step 1: Baseline Creation */}
-              <div className="text-center">
-                <div className="w-20 h-20 bg-cyan-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
-                  1
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">기준선 생성</h3>
-                <p className="text-gray-400">
-                  시스템의 알려진 양호한 상태를 캡처하여 기준선을 설정합니다.
-                </p>
-              </div>
-
-              {/* Step 2: Continuous Monitoring */}
-              <div className="text-center">
-                <div className="w-20 h-20 bg-cyan-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
-                  2
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">지속적 모니터링</h3>
-                <p className="text-gray-400">
-                  시스템을 지속적으로 스캔하여 현재 상태를 기준선과 비교합니다.
-                </p>
-              </div>
-
-              {/* Step 3: Change Detection */}
-              <div className="text-center">
-                <div className="w-20 h-20 bg-cyan-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
-                  3
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">변경 탐지</h3>
-                <p className="text-gray-400">
-                  기준선에서 벗어난 변경사항을 즉시 식별하고 분류합니다.
-                </p>
-              </div>
-
-              {/* Step 4: Alert & Response */}
-              <div className="text-center">
-                <div className="w-20 h-20 bg-cyan-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
-                  4
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">알림 및 대응</h3>
-                <p className="text-gray-400">
-                  탐지된 변경사항에 대한 즉시 알림을 발송하고 대응 조치를 제안합니다.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-20 bg-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-4">드리프트 탐지의 이점</h2>
-            <p className="text-xl text-gray-400">시스템 무결성과 보안 향상</p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             
-            {/* Security Benefits */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm">
-              <h3 className="text-xl font-bold text-white mb-4">보안 이점</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-cyan-600 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <div>
-                    <strong className="text-white">무단 변경 탐지:</strong>
-                    <span className="text-gray-400"> 허가되지 않은 시스템 수정을 즉시 발견</span>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-cyan-600 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <div>
-                    <strong className="text-white">설정 편차 방지:</strong>
-                    <span className="text-gray-400"> 보안 정책에서 벗어난 설정 변경 차단</span>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-cyan-600 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <div>
-                    <strong className="text-white">침해 조기 탐지:</strong>
-                    <span className="text-gray-400"> 공격자의 시스템 변조 시도를 신속 포착</span>
-                  </div>
-                </li>
-              </ul>
+            {/* Feature 1 */}
+            <div className="bg-gray-800 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">01.</div>
+              <h3 className="text-xl font-bold text-white mb-4">에이전트리스 작동</h3>
+              <p className="text-gray-400">
+                모니터링되는 시스템에 에이전트나 소프트웨어 설치가 필요하지 않습니다. 이는 시스템 성능에 전혀 영향을 주지 않고 최대한의 호환성을 보장합니다.
+              </p>
             </div>
 
-            {/* Operational Benefits */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-sm">
-              <h3 className="text-xl font-bold text-white mb-4">운영 이점</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-cyan-600 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <div>
-                    <strong className="text-white">변경 추적:</strong>
-                    <span className="text-gray-400"> 모든 시스템 변경사항의 완전한 감사 추적</span>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-cyan-600 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <div>
-                    <strong className="text-white">규정 준수:</strong>
-                    <span className="text-gray-400"> 규제 요구사항에 따른 시스템 무결성 증명</span>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-cyan-600 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <div>
-                    <strong className="text-white">문제 해결 지원:</strong>
-                    <span className="text-gray-400"> 시스템 문제의 근본 원인 빠른 식별</span>
-                  </div>
-                </li>
-              </ul>
+            {/* Feature 2 */}
+            <div className="bg-gray-800 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">02.</div>
+              <h3 className="text-xl font-bold text-white mb-4">즉석 기준선 생성</h3>
+              <p className="text-gray-400">
+                운영을 방해하지 않고 파일, 구성 및 시스템 상태에 대한 시스템 기준선을 빠르게 설정합니다.
+              </p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="bg-gray-800 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">03.</div>
+              <h3 className="text-xl font-bold text-white mb-4">실시간 드리프트 탐지</h3>
+              <p className="text-gray-400">
+                시스템의 변경사항을 지속적으로 모니터링하고 드리프트가 탐지되면 즉시 알림을 받습니다.
+              </p>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="bg-gray-800 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">04.</div>
+              <h3 className="text-xl font-bold text-white mb-4">포괄적인 커버리지</h3>
+              <p className="text-gray-400">
+                모든 Linux 시스템에서 파일, 디렉터리, 구성, 시스템 설정 등을 모니터링합니다.
+              </p>
+            </div>
+
+            {/* Feature 5 */}
+            <div className="bg-gray-800 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">05.</div>
+              <h3 className="text-xl font-bold text-white mb-4">에어갭 네트워크 지원</h3>
+              <p className="text-gray-400">
+                외부 연결이나 클라우드 서비스 없이 네트워크 내에서 완전히 작동합니다.
+              </p>
+            </div>
+
+            {/* Feature 6 */}
+            <div className="bg-gray-800 p-8 rounded-lg">
+              <div className="text-cyan-400 text-2xl font-bold mb-4">06.</div>
+              <h3 className="text-xl font-bold text-white mb-4">기업 규모</h3>
+              <p className="text-gray-400">
+                높은 성능과 신뢰성으로 수천 개의 시스템을 처리하도록 설계되었습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Features Section */}
+      <section className="py-20 bg-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            
+            {/* Zero Impact Monitoring */}
+            <div className="mb-20">
+              <h2 className="text-3xl font-bold text-white mb-8">영향 없는 모니터링</h2>
+              <p className="text-lg text-gray-400 mb-6">
+                우리의 에이전트리스 아키텍처는 기준선을 생성하거나 드리프트를 모니터링할 때 시스템에 성능 영향이 없음을 의미합니다. 이는 제한된 리소스를 가지고 있거나 추가 소프트웨어 설치를 허용할 수 없는 Linux 어플라이언스와 임베디드 장치에 특히 중요합니다.
+              </p>
+              <div className="mb-8">
+                <img 
+                  src="https://www.datocms-assets.com/56687/1707701101-screenshot-2024-02-12-at-2-23-16-pm.png" 
+                  alt="Linux에서 드리프트 탐지 의심스러운 프로세스" 
+                  className="w-full h-auto rounded-lg shadow-lg"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Comprehensive Drift Detection */}
+            <div className="mb-20">
+              <h2 className="text-3xl font-bold text-white mb-8">포괄적인 드리프트 탐지</h2>
+              <p className="text-lg text-gray-400 mb-8">
+                Sandfly는 파일, 디렉터리, 권한, 소유권, 타임스탬프 등의 변경사항을 탐지할 수 있습니다. 또한 무단 변경에 대한 구성 파일을 모니터링하고 중요한 시스템 설정이 수정되었을 때 알림을 받을 수 있습니다.
+              </p>
+            </div>
+
+            {/* Enterprise Deployment */}
+            <div>
+              <h2 className="text-3xl font-bold text-white mb-8">기업 배포</h2>
+              <p className="text-lg text-gray-400 mb-8">
+                대규모 기업 배포를 위해 설계된 Sandfly는 수천 개의 시스템을 동시에 모니터링할 수 있습니다. 우리의 분산 아키텍처는 가장 큰 환경에서도 높은 가용성과 성능을 보장합니다.
+              </p>
             </div>
           </div>
         </div>
@@ -460,25 +225,26 @@ const Page = () => {
       <section className="bg-gray-900 py-20">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">
-            시스템 변경을 완벽하게 통제하세요
+            Linux 인프라를 보호하세요
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Sandfly의 강력한 드리프트 탐지 기능으로 시스템의 모든 변경사항을 실시간으로 모니터링하세요. 
-            무단 변경을 사전에 차단하고 시스템 무결성을 보장할 수 있습니다.
+            오늘부터 Linux 시스템의 무단 변경과 구성 드리프트 모니터링을 시작하세요.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/get-sandfly" 
-              className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block"
-            >
-              무료 체험 시작
-            </Link>
-            <Link 
-              href="/contact-us" 
-              className="border border-gray-400 hover:border-gray-300 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block"
-            >
-              전문가와 상담
-            </Link>
+          <Link 
+            href="/get-sandfly" 
+            className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block mb-8"
+          >
+            지금 시작하기
+          </Link>
+          <div className="flex justify-center">
+            <img 
+              src="https://sandflysecurity.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fveracode-verified-standard-white.d24ef83e.png&w=384&q=75" 
+              alt="Veracode Verified Standard" 
+              width={160} 
+              height={42}
+              className="opacity-80"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -487,4 +253,3 @@ const Page = () => {
 };
 
 export default Page;
-

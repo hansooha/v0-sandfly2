@@ -3,31 +3,31 @@ import Image from 'next/image';
 
 const testimonials = [
   {
-    quote: 'BitPrime uses Sandfly to help protect our cryptocurrency exchange platform against attack. Sandfly’s agentless intrusion detection system gives us extra security to help keep our customers safe.',
+    quote: 'BitPrime은 암호화폐 거래소 플랫폼을 공격으로부터 보호하기 위해 Sandfly를 사용하고 있습니다. Sandfly의 에이전트리스 침입 탐지 시스템은 고객을 안전하게 지키기 위한 추가적인 보안을 제공합니다.',
     author: 'Ross Carter-Brown',
     company: 'BitPrime Cryptocurrency Exchange',
     imageUrl: 'https://www.datocms-assets.com/56687/1637897182-bitprime-logo.jpg?auto=enhance&h=160&w=160',
   },
   {
-    quote: 'Sandfly is the first product I’ve seen that accurately and quickly detects thousands of signs of compromise on the Linux platform. Its unique method automates tasks which would be manually impossible. Automation is key with detection, and Sandfly completely fits this and other requirements. If your organization is using Linux, this should be part of your cybersecurity toolset.',
+    quote: 'Sandfly는 Linux 플랫폼에서 수천 가지 침해 징후를 정확하고 빠르게 탐지하는 것을 제가 본 첫 번째 제품입니다. 고유한 방법론으로 수동으로는 불가능한 작업을 자동화합니다. 탐지에서 자동화가 핵심이며, Sandfly는 이를 완전히 충족하고 다른 요구사항도 만족합니다. 조직에서 Linux를 사용한다면 이것은 사이버보안 도구 세트의 일부가 되어야 합니다.',
     author: 'Ken Kleiner',
     company: 'University of Massachusetts',
     imageUrl: 'https://www.datocms-assets.com/56687/1637897245-umass-logo.jpg?auto=enhance&h=160&w=160',
   },
   {
-    quote: 'Sandfly addresses a serious security gap in the industry: Intrusion detection on Linux platforms. The best part of Sandfly is its agentless nature, making it a versatile application for any Linux environment.',
+    quote: 'Sandfly는 업계의 심각한 보안 공백인 Linux 플랫폼의 침입 탐지 문제를 해결합니다. Sandfly의 가장 좋은 점은 에이전트리스 특성으로, 모든 Linux 환경에서 다용도 애플리케이션이 될 수 있다는 것입니다.',
     author: 'Salinda Lekamge',
     company: 'Tait Communications',
     imageUrl: 'https://www.datocms-assets.com/56687/1637897235-tait-logo.jpg?auto=enhance&h=160&w=160',
   },
   {
-    quote: 'Sandfly provides peace of mind and has reduced or eliminated many of the manual auditing and review tasks that were costing us a lot of time.',
+    quote: 'Sandfly는 마음의 평안을 제공하며 많은 시간을 소요했던 수동 감사 및 검토 작업을 줄이거나 제거했습니다.',
     author: 'Jonathan Love',
     company: 'Doubledot Media Ltd',
     imageUrl: 'https://www.datocms-assets.com/56687/1637897200-doubledot-logo.jpg?auto=enhance&h=160&w=160',
   },
   {
-    quote: 'At Webmad we chose Sandfly to protect our clients. The agentless install didn’t require any changes on our systems and gave us immediate results with no resource impacts.',
+    quote: 'Webmad에서는 고객을 보호하기 위해 Sandfly를 선택했습니다. 에이전트리스 설치는 시스템 변경이 전혀 필요하지 않았으며 리소스 영향 없이 즉시 결과를 제공했습니다.',
     author: 'Stephen Price',
     company: 'WebMad Hosting',
     imageUrl: 'https://www.datocms-assets.com/56687/1638776719-stephen-price.jpg?auto=enhance&faceindex=1&facepad=3&fit=facearea&h=160&mask=ellipse&usm=20&w=160',
@@ -66,7 +66,7 @@ const TestimonialsPage = () => {
                     <div className="text-sm leading-6 text-gray-400">{testimonial.company}</div>
                   </div>
                 </div>
-                <p className="mt-6 text-lg leading-8 text-gray-300">“{testimonial.quote}”</p>
+                <p className="mt-6 text-lg leading-8 text-gray-300">"{testimonial.quote}"</p>
               </div>
             ))}
           </div>
