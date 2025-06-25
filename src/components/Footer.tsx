@@ -7,12 +7,13 @@ import { footerNav, socialNav, legalNav } from '@/lib/navigation';
 // Sandfly Logo
 const Logo = () => (
   <Link href="/" className="flex items-center">
-    <div className="flex items-center space-x-2">
-      <div className="w-8 h-8 bg-sandfly-yellow rounded-full flex items-center justify-center">
-        <span className="text-black font-bold text-lg">S</span>
-      </div>
-      <span className="text-xl font-bold text-white">Sandfly Security</span>
-    </div>
+    <img 
+      src="/images/Sandfly Security_idmRQwxQGp_1.svg" 
+      alt="Sandfly Security" 
+      width={164} 
+      height={21}
+      className="h-8 w-auto"
+    />
   </Link>
 );
 

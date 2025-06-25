@@ -1,0 +1,78 @@
+
+> sandfly.kr@0.1.0 dev
+> next dev --hostname 0.0.0.0 --port 3000
+
+   ▲ Next.js 15.3.4
+   - Local:        http://localhost:3000
+   - Network:      http://0.0.0.0:3000
+
+ ✓ Starting...
+ ✓ Ready in 931ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1862ms (1113 modules)
+ HEAD / 200 in 2061ms
+ GET / 200 in 96ms
+ ✓ Compiled /favicon.ico in 114ms (626 modules)
+ GET /favicon.ico 200 in 163ms
+ ✓ Compiled in 118ms (494 modules)
+ GET / 200 in 35ms
+ ✓ Compiled in 177ms (1104 modules)
+ GET / 200 in 64ms
+ ✓ Compiled in 162ms (1104 modules)
+ GET / 200 in 47ms
+ ✓ Compiled in 167ms (1104 modules)
+ GET / 200 in 43ms
+ ✓ Compiled in 160ms (1104 modules)
+ GET / 200 in 32ms
+ ✓ Compiled in 107ms (1104 modules)
+ GET / 200 in 32ms
+ ✓ Compiled in 109ms (1104 modules)
+ GET / 200 in 24ms
+ ✓ Compiled /platform in 284ms (1095 modules)
+ GET /platform 200 in 336ms
+ ✓ Compiled /favicon.ico in 74ms (630 modules)
+ GET /favicon.ico 200 in 118ms
+ ✓ Compiled in 179ms (1109 modules)
+ GET /platform 200 in 62ms
+ GET / 200 in 30ms
+ ✓ Compiled in 179ms (1109 modules)
+ GET / 200 in 61ms
+ ✓ Compiled in 197ms (1109 modules)
+ GET / 200 in 27ms
+ ✓ Compiled /_not-found in 282ms (1099 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 460ms
+ GET / 200 in 94ms
+ ✓ Compiled in 90ms (495 modules)
+ GET / 200 in 17ms
+ ✓ Compiled /_not-found in 111ms (1113 modules)
+ ⨯ TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>) {
+  digest: '2802662956'
+}
+TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>)
+ GET / 200 in 241ms
+ ⨯ TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>) {
+  digest: '2802662956'
+}
+TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 841ms (1433 modules)
+ GET /_next/static/css/app/layout.css?v=1750821251647 500 in 1674ms
+ GET / 200 in 264ms
+ GET / 200 in 12ms
+ GET / 500 in 1449ms

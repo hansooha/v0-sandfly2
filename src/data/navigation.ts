@@ -448,7 +448,7 @@ export const mainNav: NavItem[] = [
       },
       {
         "id": "W_PVIpPzS2a4oTP-_k18bw",
-        "title": "미팅 요청 [Alias]"
+        "title": "미팅 요청 [Alias]",
         "excerpt": "",
         "children": [],
         "slug": "request-a-meeting-alias",

@@ -6,15 +6,16 @@ import { Dialog, Popover, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import { mainNav } from '@/lib/navigation';
 
-// Sandfly Logo
+// Sandfly Logo  
 const Logo = () => (
   <Link href="/" className="flex items-center">
-    <div className="flex items-center space-x-2">
-      <div className="w-8 h-8 bg-sandfly-yellow rounded-full flex items-center justify-center">
-        <span className="text-black font-bold text-lg">S</span>
-      </div>
-      <span className="text-xl font-bold text-white">Sandfly</span>
-    </div>
+    <img 
+      src="/images/Sandfly Security_idmRQwxQGp_1.svg" 
+      alt="Sandfly Security" 
+      width={164} 
+      height={32}
+      className="h-8 w-auto"
+    />
   </Link>
 );
 
@@ -96,7 +97,7 @@ const Header = () => {
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link href="/get-sandfly" className="rounded-md bg-sandfly-yellow px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sandfly-yellow">
-            Sandfly 시작하기
+            Sandfly Security 시작하기
           </Link>
         </div>
       </nav>
@@ -164,7 +165,7 @@ const Header = () => {
                   className="mt-2 -mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-black bg-sandfly-yellow hover:bg-yellow-400"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Sandfly 시작하기
+                  Sandfly Security 시작하기
                 </Link>
               </div>
             </div>
