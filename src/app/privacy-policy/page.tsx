@@ -67,7 +67,7 @@ const policyHtml = `
   <div class="space-y-4">
     <p>Subject to certain grounds for refusal set out in the Act, you have the right to access your readily retrievable personal information that we hold and to request a correction to your personal information. Before you exercise this right, we will need evidence to confirm that you are the individual to whom the personal information relates and belongs.</p>
     <p>In respect of a request for correction, if we think the correction is reasonable and we are reasonably able to change the personal information, we will make the correction. If we do not make the correction, we will take reasonable steps to notify you on the outcome of your request.</p>
-    <p>If you want to exercise either of the above rights, email us at <a href="mailto:privacy@sandflysecurity.com" class="text-cyan-400 hover:underline">privacy@sandflysecurity.com</a>. Your email should provide evidence of who you are and set out the details of your request (e.g. the personal information, or the correction, that you are requesting).</p>
+    <p>If you want to exercise either of the above rights, email us at <a href="mailto:sales@psymont.com" class="text-cyan-400 hover:underline">sales@psymont.com</a>. Your email should provide evidence of who you are and set out the details of your request (e.g. the personal information, or the correction, that you are requesting).</p>
     <p>We may at our discretion charge you our reasonable costs of providing to you copies of your personal information or correcting that information per your request.</p>
   </div>
 
@@ -85,7 +85,7 @@ const policyHtml = `
 
   <h2 class="text-3xl font-semibold mt-8 mb-4 text-cyan-400">Contacting Us</h2>
   <div class="space-y-4">
-    <p>If you have any questions about this privacy policy, our privacy practices, or if you would like to request access to, or correction of, your personal information, you can contact us at <a href="mailto:privacy@sandflysecurity.com" class="text-cyan-400 hover:underline">privacy@sandflysecurity.com</a>.</p>
+    <p>If you have any questions about this privacy policy, our privacy practices, or if you would like to request access to, or correction of, your personal information, you can contact us at <a href="mailto:sales@psymont.com" class="text-cyan-400 hover:underline">sales@psymont.com</a>.</p>
   </div>
 `;
 

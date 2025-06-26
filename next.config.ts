@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: '/docs/:path*',
+        destination: 'https://docs.sandflysecurity.com/:path*',
+      },
+    ]
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },

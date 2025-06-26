@@ -39,7 +39,7 @@ const Page = () => {
             현재 공개된 채용 포지션은 없지만, 재능 있고 열정적인 전문가들의 연락을 항상 환영합니다.
           </p>
           <p className="mt-4 text-lg leading-8 text-gray-300">
-            우리 팀에 잘 맞을 것이라고 생각하신다면, <a href="mailto:careers@sandflysecurity.com" className="text-cyan-400 hover:underline">careers@sandflysecurity.com</a>으로 이력서와 자기소개서를 자유롭게 보내주세요. 향후 기회를 위해 귀하의 정보를 보관하겠습니다.
+            우리 팀에 잘 맞을 것이라고 생각하신다면, <a href="mailto:sales@psymont.com" className="text-cyan-400 hover:underline">sales@psymont.com</a>으로 이력서와 자기소개서를 자유롭게 보내주세요. 향후 기회를 위해 귀하의 정보를 보관하겠습니다.
           </p>
         </section>
       </main>

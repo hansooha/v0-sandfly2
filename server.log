@@ -7,72 +7,103 @@
    - Network:      http://0.0.0.0:3000
 
  ✓ Starting...
- ✓ Ready in 931ms
+ ✓ Ready in 935ms
  ○ Compiling / ...
- ✓ Compiled / in 1862ms (1113 modules)
- HEAD / 200 in 2061ms
- GET / 200 in 96ms
- ✓ Compiled /favicon.ico in 114ms (626 modules)
- GET /favicon.ico 200 in 163ms
- ✓ Compiled in 118ms (494 modules)
- GET / 200 in 35ms
- ✓ Compiled in 177ms (1104 modules)
- GET / 200 in 64ms
- ✓ Compiled in 162ms (1104 modules)
- GET / 200 in 47ms
- ✓ Compiled in 167ms (1104 modules)
- GET / 200 in 43ms
- ✓ Compiled in 160ms (1104 modules)
- GET / 200 in 32ms
- ✓ Compiled in 107ms (1104 modules)
- GET / 200 in 32ms
- ✓ Compiled in 109ms (1104 modules)
- GET / 200 in 24ms
- ✓ Compiled /platform in 284ms (1095 modules)
- GET /platform 200 in 336ms
- ✓ Compiled /favicon.ico in 74ms (630 modules)
- GET /favicon.ico 200 in 118ms
- ✓ Compiled in 179ms (1109 modules)
- GET /platform 200 in 62ms
- GET / 200 in 30ms
- ✓ Compiled in 179ms (1109 modules)
- GET / 200 in 61ms
- ✓ Compiled in 197ms (1109 modules)
- GET / 200 in 27ms
- ✓ Compiled /_not-found in 282ms (1099 modules)
- GET /.well-known/appspecific/com.chrome.devtools.json 404 in 460ms
- GET / 200 in 94ms
- ✓ Compiled in 90ms (495 modules)
- GET / 200 in 17ms
- ✓ Compiled /_not-found in 111ms (1113 modules)
- ⨯ TypeError: e[o] is not a function
-    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
-    at JSON.parse (<anonymous>) {
-  digest: '2802662956'
+ ✓ Compiled / in 1864ms (1113 modules)
+ HEAD / 200 in 2057ms
+ GET / 200 in 85ms
+ GET / 200 in 95ms
+ ✓ Compiled /favicon.ico in 109ms (626 modules)
+ GET /favicon.ico 200 in 155ms
+ ✓ Compiled /resources/blog in 168ms (1128 modules)
+ GET /resources/blog 200 in 209ms
+ GET /resources/blog 200 in 12ms
+ GET /favicon.ico 200 in 7ms
+ ✓ Compiled /_not-found in 122ms (1118 modules)
+ GET /resources/blog/2 404 in 146ms
+ GET /resources/blog/2 404 in 90ms
+ GET /resources/blog 200 in 103ms
+ ✓ Compiled in 206ms (495 modules)
+ ✓ Compiled in 182ms (1114 modules)
+ ✓ Compiled in 106ms (1114 modules)
+ ✓ Compiled in 94ms (1114 modules)
+ ✓ Compiled /_not-found in 235ms (1118 modules)
+ GET /resources/blog/2 404 in 300ms
+ GET /resources/blog/2 404 in 89ms
+ GET /resources/blog 200 in 115ms
+ GET /resources/blog 200 in 49ms
+ GET /resources/blog 200 in 38ms
+ ✓ Compiled in 109ms (495 modules)
+ GET /resources/blog 200 in 26ms
+ ✓ Compiled in 168ms (1114 modules)
+ GET /resources/blog 200 in 54ms
+ ✓ Compiled in 136ms (1114 modules)
+ GET /resources/blog 200 in 46ms
+ ✓ Compiled in 138ms (1114 modules)
+ GET /resources/blog 200 in 31ms
+ ✓ Compiled in 134ms (1114 modules)
+ GET /resources/blog 200 in 45ms
+ ✓ Compiled in 71ms (495 modules)
+ GET /resources/blog 200 in 36ms
+ ✓ Compiled in 172ms (1114 modules)
+ GET /resources/blog 200 in 56ms
+ ✓ Compiled in 55ms (495 modules)
+ GET /resources/blog 200 in 21ms
+ GET /resources/blog 200 in 57ms
+ ✓ Compiled in 116ms (1100 modules)
+ GET /resources/blog 200 in 29ms
+ ✓ Compiled in 230ms (1113 modules)
+ GET /resources/blog 200 in 31ms
+ ✓ Compiled in 84ms (1113 modules)
+ GET /resources/blog 200 in 45ms
+ ⚠ ./src/app/resources/blog/[slug]/page.tsx
+Attempted import error: 'ExternalLinkIcon' is not exported from '__barrel_optimize__?names=ArrowLeftIcon,CalendarIcon,ClockIcon,ExternalLinkIcon!=!@heroicons/react/24/outline' (imported as 'ExternalLinkIcon').
+
+Import trace for requested module:
+./src/app/resources/blog/[slug]/page.tsx
+ ○ Compiling /resources/blog/[slug] ...
+Error: Route "/resources/blog/[slug]" used `params.slug`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at eval (src/app/resources/blog/[slug]/page.tsx:27:60)
+    at Array.find (<anonymous>)
+    at BlogDetailPage (src/app/resources/blog/[slug]/page.tsx:27:32)
+  25 |
+  26 | export default function BlogDetailPage({ params }: BlogDetailPageProps) {
+> 27 |   const post = sandFlyBlogPosts.find(p => p.slug === params.slug);
+     |                                                            ^
+  28 |   
+  29 |   if (!post) {
+  30 |     notFound();
+ GET /resources/blog/sandfly-digitalocean-partnership 200 in 612ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled /resources/blog/[slug] in 115ms (1125 modules)
+ ⨯ ReferenceError: ExternalLinkIcon is not defined
+    at BlogDetailPage (src/app/resources/blog/[slug]/page.tsx:139:21)
+  137 |               className="inline-flex items-center gap-2 bg-cyan-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-cyan-700 transition-colors"
+  138 |             >
+> 139 |               원문 읽기 <ExternalLinkIcon className="h-4 w-4" />
+      |                     ^
+  140 |             </a>
+  141 |           </div>
+  142 |         </div> {
+  digest: '3901679031'
 }
-TypeError: e[o] is not a function
-    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
-    at JSON.parse (<anonymous>)
- ⨯ TypeError: e[o] is not a function
-    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
-    at JSON.parse (<anonymous>)
- GET / 200 in 241ms
- ⨯ TypeError: e[o] is not a function
-    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
-    at JSON.parse (<anonymous>) {
-  digest: '2802662956'
-}
-TypeError: e[o] is not a function
-    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
-    at JSON.parse (<anonymous>)
- ⨯ TypeError: e[o] is not a function
-    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
-    at JSON.parse (<anonymous>) {
-  page: '/'
-}
- ○ Compiling /_error ...
- ✓ Compiled /_error in 841ms (1433 modules)
- GET /_next/static/css/app/layout.css?v=1750821251647 500 in 1674ms
- GET / 200 in 264ms
- GET / 200 in 12ms
- GET / 500 in 1449ms
+ GET /resources/blog/sandfly-digitalocean-partnership 500 in 171ms
+ ✓ Compiled /favicon.ico in 88ms (646 modules)
+ GET /favicon.ico 200 in 136ms
+ ✓ Compiled in 95ms (1141 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /resources/blog/sandfly-digitalocean-partnership 200 in 180ms
+ GET /favicon.ico 200 in 9ms
+ GET /resources/blog 200 in 68ms
+ GET /resources/blog/detecting-packet-sniffing-malware 200 in 27ms
+ GET /resources/blog 200 in 39ms
+ GET /resources/blog/eliminating-linux-security-blind-spots 200 in 21ms
+ GET /resources/blog 200 in 40ms
+ ✓ Compiled in 170ms (495 modules)
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.3.4
+   - Local:        http://localhost:3000
+   - Network:      http://0.0.0.0:3000
+
+ ✓ Starting...
+ ✓ Ready in 1106ms
