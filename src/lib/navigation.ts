@@ -70,7 +70,6 @@ export const mainNav: NavItem[] = [
     path: '/resources/product-faqs',
     children: [
       { id: '39710827', title: '블로그', excerpt: '', children: [], slug: 'blog', parent: { slug: 'resources', parent: null }, enableAliasing: false, internalAlias: null, url: '', path: '/resources/blog' },
-      { id: 'HgA8MpfGRKiGZ7gS6UFghA', title: 'DigitalOcean 클라우드 배포', excerpt: 'DigitalOcean 클라우드 환경을 위한 에이전트리스 Linux 보안', children: [], slug: 'digitalocean-cloud-deployment', parent: { slug: 'resources', parent: null }, enableAliasing: false, internalAlias: null, url: '', path: '/resources/digitalocean-cloud-deployment' },
       { id: '39710828', title: '제품 FAQ', excerpt: '', children: [], slug: 'product-faqs', parent: { slug: 'resources', parent: null }, enableAliasing: false, internalAlias: null, url: '', path: '/resources/product-faqs' },
       { id: 'HTVKQwBLTri4IaUFQ3Og2A', title: '요구사항 및 설치', excerpt: '', children: [], slug: 'requirements-installation', parent: { slug: 'resources', parent: null }, enableAliasing: false, internalAlias: null, url: '', path: '/resources/requirements-installation' },
       { id: '39710829', title: '제품 문서', excerpt: '', children: [], slug: 'product-documentation', parent: { slug: 'resources', parent: null }, enableAliasing: true, internalAlias: null, url: 'https://docs.sandflysecurity.com', path: 'https://docs.sandflysecurity.com' },
@@ -90,7 +89,6 @@ export const mainNav: NavItem[] = [
     path: '/about-us/our-company',
     children: [
       { id: '39710832', title: '회사 소개', excerpt: '', children: [], slug: 'our-company', parent: { slug: 'about-us', parent: null }, enableAliasing: false, internalAlias: null, url: '', path: '/about-us/our-company' },
-      { id: '39710833', title: '파트너 및 MSSP', excerpt: '', children: [], slug: 'partner', parent: { slug: 'about-us', parent: null }, enableAliasing: false, internalAlias: null, url: '', path: '/about-us/partner' },
       { id: '39710875', title: '공격받고 계신가요?', excerpt: '', children: [], slug: 'under-attack-alias', parent: { slug: 'about-us', parent: null }, enableAliasing: true, internalAlias: { slug: 'under-attack', parent: null }, url: '', path: '/under-attack' },
       { id: '39711051', title: '뉴스', excerpt: '', children: [], slug: 'news', parent: { slug: 'about-us', parent: null }, enableAliasing: false, internalAlias: null, url: '', path: '/about-us/news' },
       { id: 'W_PVIpPzS2a4oTP-_k18bw', title: '미팅 요청', excerpt: '', children: [], slug: 'request-a-meeting-alias', parent: { slug: 'about-us', parent: null }, enableAliasing: true, internalAlias: { slug: 'request-a-meeting', parent: null }, url: '', path: '/request-a-meeting' },

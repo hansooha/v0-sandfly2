@@ -108,9 +108,10 @@ Linux를 위한 에이전트 없는 EDR 및 클라우드 보안.
               </Link>
             ))}
           </div>
-          <p className="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">
-&copy; {new Date().getFullYear()} Sandfly Security. 모든 권리 보유.
-          </p>
+          <div className="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">
+            <p className="mb-1">PSYMONT는 Sandfly의 한국내 공식 대리점입니다.</p>
+            <p>&copy; {new Date().getFullYear()} Sandfly Security는 Sandfly사의 등록상표입니다.</p>
+          </div>
         </div>
       </div>
     </footer>
