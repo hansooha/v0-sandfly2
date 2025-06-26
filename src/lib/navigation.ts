@@ -108,11 +108,10 @@ export const footerNav: NavItem[][] = [
 ];
 
 export const socialNav: SimpleNavItem[] = [
-  { title: 'Social', url: '#' },
-  { title: 'Twitter', url: 'https://twitter.com/sandflysecurity' },
-  { title: 'LinkedIn', url: 'https://www.linkedin.com/company/sandfly-security/' },
-  { title: 'YouTube', url: 'https://www.youtube.com/c/SandflySecurity' },
-  { title: 'Mastodon', url: 'https://infosec.exchange/@sandfly' },
+  { id: 'social-header', title: 'Social', url: '#' },
+  { id: 'social-twitter', title: 'Twitter', url: 'https://twitter.com/sandflysecurity' },
+  { id: 'social-linkedin', title: 'LinkedIn', url: 'https://www.linkedin.com/company/sandfly-security/' },
+  { id: 'social-youtube', title: 'YouTube', url: 'https://www.youtube.com/c/SandflySecurity' },
 ];
 
 export const legalNav: SimpleNavItem[] = [
