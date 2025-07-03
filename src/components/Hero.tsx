@@ -7,7 +7,7 @@ const Hero = () => {
       {/* Announcement Bar */}
       <div className="bg-sandfly-yellow text-black text-center py-2 px-4">
         <p className="text-sm font-medium">
-          <Link href="/blog/sandfly-5-4-cisco-and-juniper-network-device-support" className="hover:underline">
+          <Link href="/resources/blog/sandfly-5-4-network-device-support" className="hover:underline">
 Sandfly 5.4 - Cisco 및 Juniper 네트워크 장비 지원
           </Link>
         </p>

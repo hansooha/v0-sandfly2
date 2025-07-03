@@ -187,29 +187,85 @@ Sandfly는 이러한 은밀한 패킷 스니핑 활동을 실시간으로 탐지
     titleKo: "Sandfly 5.4 - Cisco 및 Juniper 네트워크 장치 지원",
     summary: "Sandfly announces version 5.4 with new support for Cisco and Juniper network devices.",
     summaryKo: "Sandfly가 Cisco 및 Juniper 네트워크 장치를 지원하는 버전 5.4를 발표했습니다.",
-    contentKo: `## 네트워크 장치로 확장된 보안 범위
+    contentKo: `## Sandfly 5.4 - Cisco 및 Juniper 네트워크 장치 지원
 
-Sandfly 5.4는 Linux 서버를 넘어 네트워크 인프라까지 보안 모니터링을 확장합니다.
+Sandfly 5.4는 업계 최초의 새로운 기능을 도입합니다: Cisco 및 Juniper 네트워킹 장비에 대한 에이전트리스 EDR 지원. 이 새로운 기능은 고객에게 이러한 중요한 장치에 대한 완전한 Linux EDR 커버리지를 제공하며, Sandfly의 검증된 속도, 안정성 및 안전성을 결합합니다. Sandfly는 업계에서 가장 광범위한 Linux 기반 서버, 임베디드, 네트워크 어플라이언스 및 장치 지원을 계속 제공합니다.
 
-### 새로운 기능
+Juniper 및 Cisco와 같은 엣지 장치 보호 외에도 Sandfly 5.4는 다음과 같은 새로운 기능을 제공합니다:
 
-#### Cisco 장치 지원
-- IOS, IOS-XE, NX-OS 플랫폼
-- 실시간 구성 변경 탐지
-- 의심스러운 명령 실행 모니터링
+* Slack 등에 대한 알림을 위한 웹훅 통합
+* 공개 및 비공개 해시 데이터베이스를 위한 위협 피드 통합
+* Salt Typhoon 중국 국가 지원 전술 및 관련 활동에 대한 확장된 탐지
 
-#### Juniper 장치 지원
-- Junos OS 전체 버전
-- 보안 정책 위반 탐지
-- 무단 액세스 시도 경고
+### Cisco 및 Juniper 네트워크 장치 지원
 
-### 주요 이점
+![Juniper Evolved OS Detail View](https://www.datocms-assets.com/56687/1745358617-juniper-os-view.png)
+*Sandfly에 의해 탐지되고 모니터링되는 Juniper 라우터*
 
-1. **통합 보안 뷰**: 서버와 네트워크 장치를 하나의 플랫폼에서 관리
-2. **컴플라이언스 강화**: 네트워크 구성 표준 준수 확인
-3. **신속한 사고 대응**: 네트워크 레벨 공격 즉시 탐지
+Sandfly의 전체 기능이 Linux 기반 운영 체제를 실행하는 Juniper 및 Cisco의 라우터와 스위치로 확장되었습니다. 여기에는 다음이 포함됩니다:
 
-이번 업데이트로 Sandfly는 진정한 엔터프라이즈급 보안 플랫폼으로 진화했습니다.`,
+* 라우터용 Cisco [IOS XR](https://www.cisco.com/site/us/en/products/networking/software/ios-xr/index.html) 네트워크 운영 체제
+* 스위치 및 관련 하드웨어용 Cisco Nexus [NX-OS](https://www.cisco.com/site/us/en/products/networking/cloud-networking/nx-os/index.html) 데이터 센터 운영 체제
+* 라우터 및 스위치용 Juniper [Evolved OS](https://www.juniper.net/us/en/products/network-operating-system/junos-evolved.html)
+
+Sandfly의 전체 기능 세트는 우리가 액세스할 수 있는 모든 장치에서 사용할 수 있습니다. 이는 Cisco 및 Juniper 네트워크 장비를 실행하는 고객이 다음을 얻을 수 있음을 의미합니다:
+
+* Sandfly의 완전한 Linux EDR 탐지 커버리지
+* 무단 변경, 새로운 프로세스, 새로운 사용자, 새로운 SSH 키 또는 장치에 대한 관련 변경 사항에 대한 드리프트 탐지
+* 완전한 SSH 키 추적 및 SSH 보안 영역 보호
+* 기존 사용자 계정의 패스워드 감사로 약한 패스워드 및 기본 패스워드 발견
+* 장치에 대한 완전한 가시성
+
+### 17개의 새로운 탐지 규칙
+
+Sandfly 5.4에는 17개의 새로운 탐지 규칙이 포함되어 있습니다. 이러한 규칙은 더 나은 위협 탐지와 시스템 가시성을 제공합니다:
+
+* **process_network_port_scan_nmap** - 시스템에서 실행되는 nmap 및 관련 포트 스캔 활동을 탐지합니다.
+* **process_network_port_operating_static_binary** - C2 페이로드 및 백도어에서 일반적인 정적으로 빌드된 네트워크 바이너리를 탐지합니다.
+* **process_masquerade_cmdline_proc_dir** - /proc을 명령줄 값으로 사용하여 실행하고 숨기는 프로세스를 탐지합니다.
+* **process_network_port_scan_masscan** - masscan 포트 스캐너 활동을 탐지합니다.
+* **process_network_port_scan_zmap** - zmap 네트워크 스캐너 활동을 탐지합니다.
+* **process_network_port_scan_unicornscan** - unicornscan 포트 스캐너를 탐지합니다.
+* **process_network_port_scan_hping** - hping 네트워크 도구 사용을 탐지합니다.
+* **process_network_port_scan_netcat** - netcat을 사용한 포트 스캔 활동을 탐지합니다.
+* **process_network_port_scan_socat** - socat을 사용한 네트워크 활동을 탐지합니다.
+* **process_network_backdoor_reverse_shell** - 역방향 셸 백도어 활동을 탐지합니다.
+* **process_network_backdoor_bind_shell** - 바인드 셸 백도어를 탐지합니다.
+* **process_network_exfiltration_curl** - curl을 사용한 데이터 유출 시도를 탐지합니다.
+* **process_network_exfiltration_wget** - wget을 사용한 데이터 유출을 탐지합니다.
+* **process_network_tunnel_ssh** - 의심스러운 SSH 터널링 활동을 탐지합니다.
+* **process_network_tunnel_stunnel** - stunnel을 사용한 터널링을 탐지합니다.
+* **process_network_proxy_squid** - squid 프록시 서버 활동을 탐지합니다.
+* **process_network_proxy_3proxy** - 3proxy 프록시 서버를 탐지합니다.
+
+![Tinyshell Backdoor Detected](https://www.datocms-assets.com/56687/1745346762-tinyshell-backdoor.png)
+*Sandfly에 의해 탐지된 Tinyshell 백도어*
+
+또한 프로세스 maps 포렌식 데이터가 maps_list로 변환되어 크기와 중복 데이터를 크게 줄였습니다. 기존 검사의 확장, 프로세스 위협의 더 넓은 커버리지 등이 포함됩니다.
+
+### Microsoft Sentinel 호스트 및 SSH 데이터
+
+Microsoft Sentinel에 대한 더 많은 지원을 추가했습니다. 여기에는 우리가 수집하는 호스트 및 SSH 키 데이터를 플랫폼으로 전송하는 것이 포함됩니다. 이 데이터는 Sentinel 내부의 보안 팀이 추가적인 위협 헌팅 및 상관관계 분석에 사용할 수 있습니다. 호스트 데이터는 Sentinel 플랫폼 내부의 보안 팀을 위한 호스트 자산 인벤토리 데이터를 구축하는 데도 사용되어 장치 발견에 도움이 됩니다.
+
+### Sandfly 체험하기
+
+Cisco 및 Juniper 장치 지원은 많은 회사에게 중요한 새로운 기능이며, 국가 지원 공격자들이 자주 표적으로 삼는 엣지 장치의 침해 여부를 확인하시기 바랍니다. Sandfly를 사용하면 엔드포인트 에이전트 없이도 이러한 장치를 간단하고 안전하게 보호할 수 있습니다. 항상 그렇듯이 Sandfly는 모든 라이선스 계층에 대해 무료 체험판을 제공합니다. 자세한 정보는 아래를 참조하세요:
+
+[Sandfly 받기](https://sandflysecurity.com/get-sandfly/)
+
+### Sandfly 업그레이드
+
+모든 고객은 Linux에 대한 확장된 커버리지 및 보호 옵션을 확인하기 위해 업그레이드하시기 바랍니다. 질문이 있으시면 언제든지 도움을 드리겠습니다. 새로운 기능 및 기능에 대한 문서를 참조하세요:
+
+[Sandfly 문서](https://docs.sandflysecurity.com/)
+
+업그레이드를 원하는 고객은 여기의 지침을 따르시기 바랍니다:
+
+[Sandfly 업그레이드](https://docs.sandflysecurity.com/docs/upgrading-sandfly)
+
+질문이 있으시면 [문의하기](https://www.sandflysecurity.com/contact-us/)를 통해 연락해 주세요.
+
+Sandfly를 사용해 주셔서 감사합니다.`,
     publishDate: "2025-04-22",
     categories: ["Product Update", "Network Security"],
     categoriesKo: ["제품 업데이트", "네트워크 보안"],

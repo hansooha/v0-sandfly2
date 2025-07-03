@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CalendarIcon, ClockIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { sandFlyBlogPosts } from '@/data/blog-posts';
+import { marked } from 'marked';
+
+
 
 interface BlogDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -29,6 +32,17 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   
   if (!post) {
     notFound();
+  }
+
+  let styledHtml = '';
+  if (post.contentKo) {
+    const rawHtml = await marked.parse(post.contentKo);
+    if (rawHtml) {
+      styledHtml = rawHtml
+        .replace(/<h2>/g, '<h2 class="text-3xl font-bold text-white mt-12 mb-6">')
+        .replace(/<h3>/g, '<h3 class="text-2xl font-semibold text-white mt-10 mb-6">')
+        .replace(/<h4>/g, '<h4 class="text-xl font-semibold text-white mt-8 mb-4">');
+    }
   }
 
   return (
@@ -102,11 +116,8 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
         {/* Article Content */}
         <article className="prose prose-invert prose-lg max-w-none">
           {post.contentKo ? (
-            <div 
-              className="text-gray-300 leading-relaxed space-y-6"
-              dangerouslySetInnerHTML={{ 
-                __html: post.contentKo.replace(/\n/g, '<br/>').replace(/```bash\n(.*?)\n```/gs, '<pre class="bg-gray-800 p-4 rounded-lg overflow-x-auto"><code class="text-cyan-400">$1</code></pre>').replace(/#### (.*?)\n/g, '<h4 class="text-xl font-semibold text-white mt-8 mb-4">$1</h4>').replace(/### (.*?)\n/g, '<h3 class="text-2xl font-semibold text-white mt-10 mb-6">$1</h3>').replace(/## (.*?)\n/g, '<h2 class="text-3xl font-bold text-white mt-12 mb-6">$1</h2>').replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>').replace(/`([^`]+)`/g, '<code class="bg-gray-800 text-cyan-400 px-2 py-1 rounded text-sm">$1</code>').replace(/- \*\*(.*?)\*\*: (.*?)(?=\n|$)/g, '<li class="mb-2"><strong class="text-white">$1</strong>: $2</li>').replace(/(\d+)\. \*\*(.*?)\*\*/g, '<div class="mb-4"><strong class="text-cyan-400">$1. $2</strong></div>')
-              }} 
+            <div
+              dangerouslySetInnerHTML={{ __html: styledHtml }}
             />
           ) : (
             <div className="text-gray-300 leading-relaxed">
