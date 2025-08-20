@@ -18,6 +18,57 @@ interface BlogPost {
 
 export const sandFlyBlogPosts: BlogPost[] = [
   {
+    id: "19",
+    slug: "phrack-linux-rootkit-deep-dive-part-1",
+    title: "Phrack Linux Rootkit Deep Dive Part 1: The Backdoor",
+    titleKo: "Phrack Linux 루트킷 심층 분석 1부: 백도어",
+    summary: "A technical deep dive into the Phrack-leaked Linux rootkit, focusing on its sophisticated backdoor capabilities, anti-forensics, and covert communication channels.",
+    summaryKo: "Phrack에서 유출된 Linux 루트킷의 기술적 심층 분석입니다. 정교한 백도어 기능, 안티 포렌식, 은밀한 통신 채널에 중점을 둡니다.",
+    contentKo: `최근 Phrack 포럼에서 유출된 것으로 추정되는 정교한 Linux 스텔스 루트킷의 소스 코드가 발견되었습니다. 이 루트킷은 기존의 탐지 기법을 우회하도록 설계된 고급 기술을 사용하고 있어 Linux 시스템에 심각한 위협이 될 수 있습니다. 본 분석에서는 이 루트킷의 주요 기능과 동작 방식을 심층적으로 살펴봅니다.\n\n### 루트킷의 주요 기능\n\n- **프로세스 및 파일 숨기기**: 루트킷은 \`readdir\` 및 \`readdir64\` 시스템 콜을 후킹하여 특정 파일과 디렉터리를 숨깁니다. 이를 통해 악성 파일이 시스템 관리자에게 보이지 않게 됩니다.\n- **네트워크 연결 은폐**: \`tcp4_seq_show\` 및 \`tcp6_seq_show\`와 같은 커널 함수를 조작하여 악의적인 네트워크 연결을 숨깁니다.\n- **백도어 기능**: 루트킷은 원격 공격자가 시스템에 접근할 수 있는 백도어를 포함하고 있습니다. 이 백도어는 암호화된 채널을 통해 통신하여 탐지를 어렵게 만듭니다.\n- **지속성 메커니즘**: 시스템 재부팅 후에도 루트킷이 활성 상태를 유지하도록 다양한 지속성 기술을 사용합니다. 예를 들어, 시스템 라이브러리를 패치하거나 부팅 스크립트를 수정합니다.\n\n### 탐지 및 대응 방안\n\n이러한 정교한 루트킷을 탐지하는 것은 매우 어렵지만, 다음과 같은 방법을 통해 가능성을 높일 수 있습니다.\n\n- **무결성 검사**: 시스템 파일의 무결성을 정기적으로 검사하여 예상치 못한 변경 사항을 탐지합니다. \`AIDE\`나 \`Tripwire\`와 같은 도구를 사용할 수 있습니다.\n- **메모리 포렌식**: 루트킷은 디스크가 아닌 메모리에서 주로 활동하므로, \`Volatility\`나 \`LiME\`과 같은 도구를 사용하여 메모리 덤프를 분석하는 것이 효과적입니다.\n- **네트워크 트래픽 분석**: 비정상적인 프로토콜을 사용하거나 암호화된 트래픽이 급증하는 등 의심스러운 네트워크 활동을 모니터링합니다.\n- **에이전트 없는 EDR 솔루션**: Sandfly와 같은 에이전트 없는 EDR(Endpoint Detection and Response) 솔루션은 호스트에 소프트웨어를 설치하지 않고도 시스템을 검사하여 루트킷의 흔적을 찾을 수 있습니다.\n\n### 결론\n\nPhrack에서 유출된 이 Linux 루트킷은 현대 사이버 공격의 정교함을 잘 보여줍니다. 시스템 관리자와 보안 전문가는 이러한 위협에 대비하여 다층적인 방어 전략을 수립해야 합니다. 지속적인 모니터링과 고급 탐지 도구의 사용이 필수적입니다.`,
+    publishDate: "2025-08-22",
+    categories: ["Linux Security", "Rootkits", "Malware Analysis"],
+    categoriesKo: ["Linux 보안", "루트킷", "악성코드 분석"],
+    url: "https://sandflysecurity.com/blog/phrack-linux-rootkit-deep-dive-part-1-the-backdoor",
+    imageUrl: "/images/phrack-rootkit-assets/phrack-rootkit-main-banner.png",
+    author: "Craig Rowland",
+    readTime: 20
+  },
+
+  {
+    id: "18",
+    slug: "analysis-of-leaked-linux-stealth-rootkit-from-phrack",
+    title: "Analysis of a Leaked Linux Stealth Rootkit from Phrack",
+    titleKo: "Phrack에서 유출된 Linux 스텔스 루트킷 분석",
+    summary: "A deep dive into the techniques and mechanisms of a sophisticated Linux stealth rootkit leaked on the Phrack forums, exploring its infection vectors, hiding capabilities, and detection methods.",
+    summaryKo: "Phrack 포럼에서 유출된 정교한 Linux 스텔스 루트킷의 기술과 메커니즘을 심층 분석합니다. 감염 경로, 은폐 기능, 탐지 방법을 탐구합니다.",
+    contentKo: `<p class=MsoNormal align=center style='text-align:center'><a name="_49o129a369m3"></a><b><span lang=EN-US style='font-size:24.0pt;mso-bidi-font-size:11.0pt;line-height:107%'>Analysis of a Leaked Linux Stealth Rootkit from Phrack<o:p></o:p></span></b></p><p class=MsoNormal align=center style='text-align:center'><b><span lang=KO style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:107%'>Phrack에서 유출된 Linux 스텔스 루트킷 분석<o:p></o:p></span></b></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><span lang=EN-US>&nbsp;</span></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><b><span lang=KO style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%'>소개<o:p></o:p></span></b></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><span lang=KO>최근 Phrack 포럼에서 유출된 것으로 추정되는 정교한 Linux 스텔스 루트킷의 소스 코드가 발견되었습니다. 이 루트킷은 기존의 탐지 기법을 우회하도록 설계된 고급 기술을 사용하고 있어 Linux 시스템에 심각한 위협이 될 수 있습니다. 본 분석에서는 이 루트킷의 주요 기능과 동작 방식을 심층적으로 살펴봅니다.<o:p></o:p></span></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><span lang=EN-US>&nbsp;</span></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><b><span lang=KO style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%'>초기 접근 및 지속성<o:p></o:p></span></b></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><span lang=KO>이 루트킷은 주로 취약한 서비스를 통해 시스템에 침투한 후, 시스템 부팅 시 자동으로 실행되도록 자신을 등록합니다. 일반적인 systemd 서비스나 cron 작업 대신, 이 루트킷은 시스템 라이브러리 함수를 후킹하여 자신을 시스템 프로세스에 주입하는 방식을 사용합니다.<o:p></o:p></span></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><span lang=EN-US><img width=602 height=339 src="/images/phrack-rootkit-assets/image001.png"></span></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><b><span lang=KO style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%'>커널 모듈 은폐<o:p></o:p></span></b></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><span lang=KO>루트킷의 핵심 기능은 커널 수준에서 자신을 은폐하는 것입니다. lsmod와 같은 명령어의 출력을 조작하여 자신의 커널 모듈이 목록에 나타나지 않도록 합니다. 이는 /proc/modules 파일의 내용을 동적으로 필터링하는 커널 함수 후킹을 통해 이루어집니다.<o:p></o:p></span></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><span lang=EN-US><img width=602 height=339 src="/images/phrack-rootkit-assets/image002.png"></span></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><b><span lang=KO style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%'>파일 및 프로세스 은폐<o:p></o:p></span></b></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><span lang=KO>루트킷은 특정 접두사(예: _rk_)를 가진 파일이나 프로세스를 시스템에서 보이지 않게 만듭니다. readdir 시스템 콜을 후킹하여 ls, find와 같은 명령어의 결과에서 해당 파일들을 제외시킵니다. 마찬가지로 /proc 디렉토리 탐색을 조작하여 관련 프로세스를 숨깁니다.<o:p></o:p></span></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><span lang=EN-US>&nbsp;</span></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><b><span lang=KO style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%'>네트워크 통신 은폐<o:p></o:p></span></b></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><span lang=KO>가장 정교한 기능 중 하나는 네트워크 통신을 은폐하는 것입니다. 루트킷은 특정 '매직 패킷'을 수신했을 때만 백도어 셸을 엽니다. 평상시에는 netstat과 같은 도구로도 연결을 탐지할 수 없습니다.<o:p></o:p></span></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><span lang=EN-US>&nbsp;</span></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><b><span lang=KO style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%'>탐지 및 대응<o:p></o:p></span></b></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><span lang=KO>이러한 고급 루트킷을 탐지하기 위해서는 기존의 시그니처 기반 탐지를 넘어선 에이전트리스 방식의 메모리 포렌식 및 시스템 무결성 검사가 필수적입니다. Sandfly Security는 이러한 유형의 위협을 탐지하고 대응하는 데 특화된 솔루션을 제공합니다.<o:p></o:p></span></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><span lang=EN-US>&nbsp;</span></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><b><span lang=KO style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:107%'>결론<o:p></o:p></span></b></p><p class=MsoNormal style='text-align:justify;word-break:keep-all'><span lang=KO>Phrack에서 유출된 이 루트킷은 Linux 시스템에 대한 공격이 얼마나 정교해질 수 있는지를 보여주는 좋은 예입니다. 시스템 관리자와 보안 전문가는 이러한 위협에 대비하여 항상 최신 보안 동향을 주시하고 고급 탐지 도구를 활용해야 합니다.</span>`,
+    publishDate: "2025-08-20",
+    categories: ["Linux Security", "Malware", "Rootkits"],
+    categoriesKo: ["Linux 보안", "악성코드", "루트킷"],
+    url: "https://sandflysecurity.com/blog/analysis-of-leaked-linux-stealth-rootkit-from-phrack",
+    imageUrl: "/images/leaked-rootkit-main.png",
+    author: "Sandfly Security Team",
+    readTime: 15
+  },
+
+  {
+    id: "17",
+    slug: "sandfly-5-5-enhanced-linux-edr-security-compliance",
+    title: "Sandfly 5.5 - Enhanced Linux EDR, Security, and Compliance",
+    titleKo: "Sandfly 5.5 - Linux EDR, 보안 및 규정 준수 강화",
+    summary: "Sandfly version 5.5 introduces significant enhancements to Linux EDR, security, and compliance, featuring new CIS compliance checks, expanded threat detection capabilities, and improved system forensics to provide deeper visibility and control over Linux environments.",
+    summaryKo: "Sandfly 5.5 버전은 새로운 CIS 규정 준수 확인, 확장된 위협 탐지 기능, 향상된 시스템 포렌식을 통해 Linux EDR, 보안 및 규정 준수를 크게 강화하여 Linux 환경에 대한 더 깊은 가시성과 제어력을 제공합니다.",
+    contentKo: `## Sandfly 5.5 출시: Linux EDR, 보안 및 규정 준수 강화\n\nSandfly Security는 최신 버전인 Sandfly 5.5를 발표하게 되어 기쁩니다. 이번 릴리스는 Linux EDR(엔드포인트 탐지 및 대응), 보안 및 규정 준수 기능을 크게 향상시키는 데 중점을 두었습니다. Sandfly 5.5는 새로운 CIS(Center for Internet Security) 규정 준수 확인, 확장된 위협 탐지 기능, 향상된 시스템 포렌식을 통해 고객이 Linux 환경에 대한 더 깊은 가시성과 제어력을 확보할 수 있도록 지원합니다.\n\n### 주요 업데이트 내용\n\n#### 1. CIS 규정 준수 모듈\n\n![Sandfly 5.5 규정 준수 대시보드](/images/sandfly-5-5-compliance-view.png)\n*Sandfly 5.5의 새로운 규정 준수 대시보드*\n\nSandfly 5.5는 이제 CIS 벤치마크에 대한 포괄적인 규정 준수 검사를 제공합니다. 이를 통해 조직은 산업 표준에 따라 Linux 시스템의 보안 구성을 자동으로 평가하고 강화할 수 있습니다.\n\n- **자동화된 검사**: 수동 작업 없이 전체 Linux 환경에 대한 CIS 벤치마크 준수 여부를 자동으로 스캔합니다.\n- **상세 보고서**: 각 호스트에 대한 상세한 규정 준수 보고서를 생성하여 미준수 항목과 해결 방법을 명확하게 제시합니다.\n- **지속적인 모니터링**: 규정 준수 상태를 지속적으로 모니터링하고 변경 사항이 발생하면 즉시 알림을 제공합니다.\n\n#### 2. 확장된 위협 탐지\n\n이번 릴리스에는 최신 Linux 위협에 대응하기 위한 25개 이상의 새로운 탐지 규칙이 포함되었습니다.\n\n- **메모리 내 위협 탐지 강화**: 파일리스 악성코드와 메모리에서 직접 실행되는 공격을 탐지하는 능력이 향상되었습니다.\n- **컨테이너 이스케이프 탐지**: Docker 및 Kubernetes 환경에서 컨테이너 이스케이프 시도를 탐지하는 새로운 규칙이 추가되었습니다.\n- **크리덴셜 탈취 방지**: \`/proc\` 파일 시스템을 악용하여 메모리에서 사용자 크리덴셜을 탈취하려는 시도를 차단합니다.\n\n#### 3. 향상된 시스템 포렌식\n\n![Sandfly 5.5 CIS 보고서 예시](/images/sandfly-5-5-cis-report.png)\n*Sandfly 5.5의 상세한 CIS 보고서 예시*\n\nSandfly 5.5는 보안 분석가가 침해 사고를 더 빠르고 정확하게 조사할 수 있도록 포렌식 데이터 수집 및 분석 기능을 강화했습니다.\n\n- **프로세스 계보 시각화**: 특정 프로세스의 생성 과정을 추적하여 악성 행위의 근본 원인을 쉽게 파악할 수 있습니다.\n- **네트워크 연결 분석**: 모든 활성 및 과거 네트워크 연결에 대한 상세 정보를 제공하여 의심스러운 통신을 신속하게 식별합니다.\n- **사용자 활동 추적**: 특정 사용자가 실행한 모든 명령어와 파일 접근 기록을 타임라인으로 제공하여 내부 위협 분석을 용이하게 합니다.\n\n### Sandfly 5.5 시작하기\n\nSandfly 5.5는 모든 고객에게 무료로 제공되는 업그레이드입니다. 지금 바로 업그레이드하여 강화된 Linux 보안 및 규정 준수 기능을 활용해 보세요. Sandfly를 처음 사용하는 경우, [무료 평가판](https://sandflysecurity.com/get-sandfly/)을 신청하여 에이전트리스 Linux 보안의 강력함을 직접 경험해 보실 수 있습니다.`,
+    publishDate: "2025-08-20",
+    categories: ["Product Update", "Linux Security", "Compliance"],
+    categoriesKo: ["제품 업데이트", "Linux 보안", "규정 준수"],
+    url: "https://sandflysecurity.com/blog/sandfly-5-5-enhanced-linux-edr-security-compliance",
+    imageUrl: "/images/sandfly-5-5-release-banner.png",
+    author: "Sandfly Security Team",
+    readTime: 10
+  },
+
+  {
     id: "1",
     slug: "sctp-protocol-attack-risks-on-linux",
     title: "SCTP Protocol Attack Risks on Linux",

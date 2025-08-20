@@ -272,7 +272,7 @@ export const mainNav: NavItem[] = [
         "enableAliasing": false,
         "internalAlias": null,
         "url": "",
-        "path": "/resources/blog"
+        "path": "/blog"
       },
       {
         "id": "HgA8MpfGRKiGZ7gS6UFghA",

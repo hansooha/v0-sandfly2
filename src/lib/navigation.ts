@@ -69,7 +69,7 @@ export const mainNav: NavItem[] = [
     url: '',
     path: '/resources/product-faqs',
     children: [
-      { id: '39710827', title: '블로그', excerpt: '', children: [], slug: 'blog', parent: { slug: 'resources', parent: null }, enableAliasing: false, internalAlias: null, url: '', path: '/resources/blog' },
+      { id: '39710827', title: '블로그', excerpt: '', children: [], slug: 'blog', parent: { slug: 'resources', parent: null }, enableAliasing: false, internalAlias: null, url: '', path: '/blog' },
       { id: '39710828', title: '제품 FAQ', excerpt: '', children: [], slug: 'product-faqs', parent: { slug: 'resources', parent: null }, enableAliasing: false, internalAlias: null, url: '', path: '/resources/product-faqs' },
       { id: 'HTVKQwBLTri4IaUFQ3Og2A', title: '요구사항 및 설치', excerpt: '', children: [], slug: 'requirements-installation', parent: { slug: 'resources', parent: null }, enableAliasing: false, internalAlias: null, url: '', path: '/resources/requirements-installation' },
       { id: '39710829', title: '제품 문서', excerpt: '', children: [], slug: 'product-documentation', parent: { slug: 'resources', parent: null }, enableAliasing: true, internalAlias: null, url: 'https://docs.sandflysecurity.com', path: 'https://docs.sandflysecurity.com' },

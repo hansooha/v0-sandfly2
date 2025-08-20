@@ -109,7 +109,7 @@ const Page = () => {
                   <span className="text-gray-300">업계 동향</span>
                 </li>
               </ul>
-              <Link href="/resources/blog" className="text-sandfly-yellow hover:text-sandfly-yellow-light font-semibold">
+              <Link href="/blog" className="text-sandfly-yellow hover:text-sandfly-yellow-light font-semibold">
                 블로그 보기 →
               </Link>
             </div>
