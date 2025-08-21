@@ -1,13 +1,88 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
+import { debounce } from 'lodash';
+
+// 이메일 검증 상태를 위한 타입 정의
+type VerificationStatus = 'idle' | 'verifying' | 'valid' | 'invalid' | 'error';
 
 const Page = () => {
   const [loading, setLoading] = useState(false);
   const [showSplash, setShowSplash] = useState(false);
   const [splashMessage, setSplashMessage] = useState('');
+  const [email, setEmail] = useState('');
+  const [emailVerificationStatus, setEmailVerificationStatus] = useState<VerificationStatus>('idle');
+  const [emailVerificationMessage, setEmailVerificationMessage] = useState('');
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+
+  // 이메일 검증 API 호출 함수
+  const verifyEmail = async (emailToVerify: string) => {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailToVerify)) {
+      setEmailVerificationStatus('idle');
+      setEmailVerificationMessage('');
+      return;
+    }
+
+    setEmailVerificationStatus('verifying');
+    setEmailVerificationMessage('이메일 주소를 확인 중입니다...');
+
+    try {
+      const response = await fetch('/api/verify-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: emailToVerify }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        if (data.status === 'valid') {
+          setEmailVerificationStatus('valid');
+          setEmailVerificationMessage('유효한 이메일 주소입니다.');
+        } else {
+          setEmailVerificationStatus('invalid');
+          setEmailVerificationMessage('존재하지 않거나 유효하지 않은 이메일입니다.');
+        }
+      } else {
+        throw new Error(data.error || '검증 서버 오류');
+      }
+    } catch (error) {
+      console.error('Email verification error:', error);
+      setEmailVerificationStatus('error');
+      setEmailVerificationMessage('이메일 검증 중 오류가 발생했습니다.');
+    }
+  };
+  
+  // 디바운스를 적용하여 API 호출 빈도 조절
+  const debouncedVerifyEmail = useCallback(debounce(verifyEmail, 500), []);
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+    if (newEmail.trim() === '') {
+        setEmailVerificationStatus('idle');
+        setEmailVerificationMessage('');
+        debouncedVerifyEmail.cancel();
+    } else {
+        debouncedVerifyEmail(newEmail);
+    }
+  };
+
+  // 제출 버튼 활성화/비활성화 로직
+  useEffect(() => {
+    // 다른 필수 필드들이 채워져 있고, 이메일이 유효할 때만 버튼 활성화
+    // (여기서는 간단하게 이메일 상태만 체크)
+    if (emailVerificationStatus === 'valid') {
+      setIsSubmitDisabled(false);
+    } else {
+      setIsSubmitDisabled(true);
+    }
+  }, [emailVerificationStatus]);
+
 
   return (
     <div className="bg-gray-900 text-white">
@@ -46,7 +121,7 @@ const Page = () => {
                 const company = form['Company'].value.trim();
                 const companyUrl = form['LEADCF5'].value.trim();
                 const lastName = form['Last Name'].value.trim();
-                const email = form['Email'].value.trim();
+                const currentEmail = form['Email'].value.trim();
                 const mobile = form['Mobile'].value.trim();
                 const privacyChecked = form['privacyTool'].checked;
 
@@ -57,8 +132,8 @@ const Page = () => {
 
                 // 이메일 유효성 검사
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                  alert('올바른 이메일 주소를 입력하십시오.');
+                if (emailVerificationStatus !== 'valid') {
+                  alert('유효한 이메일 주소를 입력하고 확인해주세요.');
                   return;
                 }
 
@@ -81,6 +156,8 @@ const Page = () => {
                     setSplashMessage(data.actionvalue || '양식이 성공적으로 제출되었습니다.');
                     setShowSplash(true);
                     form.reset();
+                    setEmail('');
+                    setEmailVerificationStatus('idle');
                     
                     setTimeout(() => {
                       setShowSplash(false);
@@ -96,9 +173,9 @@ const Page = () => {
               }}
             >
               {/* Hidden Fields */}
-              <input type="text" style={{ display: 'none' }} name="xnQsjsdp" value="eeb9d3b80a1c43c093d05b79ab5c0d94cbc54f2a04baa8d6402f5ab20d11830b" readOnly />
+              <input type="text" style={{ display: 'none' }} name="xnQsjsdp" value="73815df3be3d510f312421cd7d985a7ceb55480403dae28789e3a964ff5c25d3" readOnly />
               <input type="hidden" name="zc_gad" id="zc_gad" value="" />
-              <input type="text" style={{ display: 'none' }} name="xmIwtLD" value="7cc0f2c0a439c6bcb75c39742b77117f571d872b0a27420670215f674c28afc7ce3ed1b2f4fe0d77de785da283310f4b" readOnly />
+              <input type="text" style={{ display: 'none' }} name="xmIwtLD" value="13e6dff8ed72dfb5fdc03784900f3ebaff1eccd66fa5550280dbaeedab8a34a275b8cccc7b9fbf4aac7ad5945011601f" readOnly />
               <input type="text" style={{ display: 'none' }} name="actionType" value="TGVhZHM=" readOnly />
               <input type="text" style={{ display: 'none' }} name="returnURL" value="null" readOnly />
               <input type="text" style={{ display: 'none' }} name="aG9uZXlwb3Q" value="" readOnly />
@@ -161,8 +238,16 @@ const Page = () => {
                     name="Email" 
                     maxLength={100}
                     required
+                    value={email}
+                    onChange={handleEmailChange}
                     className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
                   />
+                  <div className="mt-1 text-sm h-5">
+                    {emailVerificationStatus === 'verifying' && <p className="text-yellow-400">{emailVerificationMessage}</p>}
+                    {emailVerificationStatus === 'valid' && <p className="text-green-400">{emailVerificationMessage}</p>}
+                    {emailVerificationStatus === 'invalid' && <p className="text-red-400">{emailVerificationMessage}</p>}
+                    {emailVerificationStatus === 'error' && <p className="text-red-400">{emailVerificationMessage}</p>}
+                  </div>
                 </div>
 
                 {/* 휴대전화 */}
@@ -209,13 +294,17 @@ const Page = () => {
               <div className="mt-8 flex gap-4">
                 <button 
                   type="submit" 
-                  disabled={loading}
+                  disabled={loading || isSubmitDisabled}
                   className="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? '제출 중...' : '제출'}
                 </button>
                 <button 
                   type="reset" 
+                  onClick={() => {
+                      setEmail('');
+                      setEmailVerificationStatus('idle');
+                  }}
                   className="inline-flex justify-center py-3 px-6 border border-gray-600 shadow-sm text-base font-medium rounded-md text-gray-300 bg-gray-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                 >
                   재설정
@@ -229,7 +318,7 @@ const Page = () => {
       {/* Analytics Tracking */}
       <Script 
         id="wf_anal" 
-        src="https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=3db2f93352b6be2ee05ddaab689e0a3e0eb7290c05815183d801b0b58962d4edf80d2c3e26fa08560bd34bfa66379e15gidebf7be21190af7675886510c2d9b01735b6a974ffd1b6a941e4392bd51d5931egid00b4bb4ec1c4b809c52b9dfeb908469aee4bc79e41423e0b28982fcabe247fdbgid12e5093d13c635ae557aed44656e9da4cfc82408127d22650f5536579333a5e9&tw=b2b8020cbeb82f9728739009910cd082729d9ea54d54f4266682dde442508c7e"
+        src="https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=455d0823036ba4227bf14d40f0dc691c4f9196a57516eca533f6d57d8db356228aa34f129553db7cea1c64ac44927244gid6dea9ab0aadb1a1ff23fa0ea5e6f0927929df77ba50acf071794f9d59c28247bgid660087c71b347e4a66f9fd14c75607667cfe02f37abf2ef32493791ddd6d6a16gid6e83077acc51891cdd96d9fef8d04fbce8275b6b8105b478c7f5c4bed5e413af&tw=180db9742105016837ebeeed7bf9280962ddd15da1bd2cc12f371c3e974fca1d"
       />
     </div>
   );
