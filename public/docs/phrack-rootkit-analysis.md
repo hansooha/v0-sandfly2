@@ -33,7 +33,7 @@ Phrack 기사에 따르면, 이 악성 소프트웨어는 탐지를 회피하고
 
 이 루트킷은 고객 업데이트 없이 Sandfly에서 기본적으로 탐지 가능합니다. 우리는 이 유형의 루트킷에 대한 탐지 기록을 이미 보유하고 있습니다. 우리는 고객들이 이 루트킷을 정확하고 대규모로 탐지하기 위해 자동화된 도구를 사용하도록 **강력히 권장**합니다. 그러나 이 기사에서 설명하는 침해 조사 대상 호스트에 적용할 수 있는 수동 명령어를 제공할 것입니다. 아래는 이 커널 루트킷과 백도어가 활성화된 호스트에서 Sandfly가 생성하는 기본 알림입니다.
 
-![Rootkit Sandfly Alerts](data:image/png;base64...)
+![Rootkit Sandfly Alerts](../images/phrack-rootkit-assets/image001.png)
 
 **루트킷 기본 동작**
 
@@ -49,9 +49,9 @@ Phrack 기사에 따르면, 이 악성 소프트웨어는 탐지를 회피하고
 
 이 명령어는 어떤 파일도 표시하지 않아야 합니다. 데이터가 반환된다면 모듈이 존재하며, 이는 호스트에서 활성화되었거나 과거에 활성화되었음을 의미합니다. 모듈이 활성화되었을 때 볼 수 있는 몇 가지 예시는 다음과 같습니다.
 
-![Using stat command to reveal hidden rootkit module.](data:image/png;base64...)
+![Using stat command to reveal hidden rootkit module.](../images/phrack-rootkit-assets/image1.png)
 
-![Using file command to reveal rootkit module.](data:image/png;base64...)
+![Using file command to reveal rootkit module.](../images/phrack-rootkit-assets/image2.png)
 
 **서명되지 않은 모듈 커널 오염(Taint) 지표**
 
@@ -69,19 +69,19 @@ Phrack 기사에 따르면, 이 악성 소프트웨어는 탐지를 회피하고
 
 영향을 받은 시스템에서 ***dmesg*** 명령어로 오염 상태를 검색할 때 출력은 아래와 유사할 것입니다. 출력을 평가하여 모듈 이름이 의심스럽거나 예상치 못한 지 확인하세요.
 
-![dmesg check for tainted modules on Linux.](data:image/png;base64...)
+![dmesg check for tainted modules on Linux.](../images/phrack-rootkit-assets/image003.png)
 
 ***dmesg***는 링 버퍼이므로 시간이 지나면서 메시지가 롤아웃될 수 있습니다. 일부 시스템에서 더 지속적인 정보를 확인할 수 있는 다른 영역은 ***/var/log/kern.log***입니다. 아래는 시스템 재부팅 시 각 부팅 시 커널 모듈이 로드될 때마다 다중 오염 메시지가 표시되는 예시입니다. ***dmesg*** 명령어는 디스크에 저장된 ***/var/log/kern.log***와 달리 이러한 연속성을 표시하지 않습니다.
 
-![Malicious Linux kernel module found in /var/log/kern.log](data:image/png;base64...)
+![Malicious Linux kernel module found in /var/log/kern.log](../images/phrack-rootkit-assets/image3.png)
 
 Sandfly에서는 오염된 커널을 식별하지만, 한 단계 더 나아가 커널 오염이 있지만 원인을 일으킨 모듈이 목록에 없는 경우도 확인합니다. 이는 모듈이 로드된 후 목록에서 자신을 제거하여 숨기려는 시도일 수 있습니다. 불행히도 이 검사는 매우 유용하지만, 이를 광범위하게 실행할 수 있는 직접적인 커맨더 도구가 없기 때문에 사용 가능한 경우 우리 탐지 기능을 사용하는 것을 권장합니다.
 
-![Kernel taint inconsistency detected by Sandfly.](data:image/png;base64...)
+![Kernel taint inconsistency detected by Sandfly.](../images/phrack-rootkit-assets/image4.png)
 
 또한 드리프트 감지를 사용하는 고객의 경우 오염 상태가 예상 프로필에서 변경된 경우 경고합니다. 이 기능도 사용 가능한 경우 훌륭한 옵션입니다.
 
-![Kernel taint drift detection.](data:image/png;base64...)
+![Kernel taint drift detection.](../images/phrack-rootkit-assets/image005.png)
 
 **숨겨진 파일 및 디렉토리**
 
@@ -111,7 +111,7 @@ Sandfly에서는 오염된 커널을 식별하지만, 한 단계 더 나아가 �
 
 이 예시에서 우리는 ***/usr/lib64*** 디렉토리에 대해 ***ls***를 실행했지만 모듈을 볼 수 없습니다. 하지만 파일 이름을 직접 지정하여 ***stat*** 및 ***file*** 명령어를 실행하면 실제로 존재하지만 단순히 보이지 않는다는 것을 확인할 수 있습니다.
 
-![Kernel module hides from directory listing, but can be seen with other commands.](data:image/png;base64...)
+![Kernel module hides from directory listing, but can be seen with other commands.](../images/phrack-rootkit-assets/image5.png)
 
 **숨겨진 백도어 바이너리**
 
@@ -121,7 +121,7 @@ Sandfly에서는 오염된 커널을 식별하지만, 한 단계 더 나아가 �
 
 **ls -al**
 
-![Revealing hidden backdoor binary.](data:image/png;base64...)
+![Revealing hidden backdoor binary.](../images/phrack-rootkit-assets/image6.png)
 
 **지속성(Persistence) 메커니즘**
 
@@ -175,21 +175,21 @@ Sandfly에서는 오염된 커널을 식별하지만, 한 단계 더 나아가 �
 
 **systemctl status tracker-fs.service**
 
-![](data:image/png;base64...)
+![](../images/phrack-rootkit-assets/image007.png)
 
 Sandfly를 실행 중인 경우 Host -> Services 뷰에서 새로운 ***systemd*** 서비스를 확인할 수 있습니다. 아래에서 ***tracker-fs.service***를 볼 수 있습니다. 빨간색 아이콘은 이 호스트에서 예상치 않게 드리프트 감지 표시가 되었음을 의미합니다.
 
-![텍스트, 스크린샷, 소프트웨어, 멀티미디어 소프트웨어이(가) 표시된 사진  AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](data:image/png;base64...)
+![텍스트, 스크린샷, 소프트웨어, 멀티미디어 소프트웨어이(가) 표시된 사진  AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](../images/phrack-rootkit-assets/image7.png)
 
-![Systemd service drift detection.](data:image/png;base64...)
+![Systemd service drift detection.](../images/phrack-rootkit-assets/image8.png)
 
 **숨겨진 파일 탐지 자동화**
 
 위와 같이 수동으로 파일 숨김 해제를 수행하는 것이 번거롭고 오류가 발생하기 쉽다고 생각하신다면, 그 판단은 맞습니다. 우리는 고객들이 Sandfly를 사용하여 이 작업을 자동화할 것을 강력히 권장합니다. Sandfly는 이 루트킷 및 기타 루트킷에 의해 숨겨진 파일을 즉시 숨김 해제하여 이러한 문제를 매우 쉽게 찾을 수 있도록 합니다. Sandfly의 탐지는 파일 이름을 어떻게 변경하더라도 작동합니다. 아래에서는 모든 숨겨진 파일이 완전히 숨김 해제된 상태로 표시됩니다. 우리는 에이전트 없이, 빠르게, 안전하게 이 작업을 수행하도록 설계되었습니다.
 
-![Hidden files de-cloaked and alerts generated.](data:image/png;base64...)
+![Hidden files de-cloaked and alerts generated.](../images/phrack-rootkit-assets/image9.png)
 
-![Hidden file details revealed.](data:image/png;base64...)
+![Hidden file details revealed.](../images/phrack-rootkit-assets/image009.png)
 
 **백도어 바이너리 문자열 분석**
 
@@ -197,7 +197,7 @@ Sandfly를 실행 중인 경우 Host -> Services 뷰에서 새로운 ***systemd*
 
 **strings /usr/include/tracker-fs/tracker-efs**
 
-![텍스트, 스크린샷이(가) 표시된 사진  AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](data:image/png;base64...)
+![텍스트, 스크린샷이(가) 표시된 사진  AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](../images/phrack-rootkit-assets/image10.png)
 
 **통신 소켓**
 
@@ -205,7 +205,7 @@ Sandfly를 실행 중인 경우 Host -> Services 뷰에서 새로운 ***systemd*
 
 **ls -al /proc/acpi/pcicard**
 
-![Rootkit communications socket under /proc.](data:image/png;base64...)
+![Rootkit communications socket under /proc.](../images/phrack-rootkit-assets/image11.png)
 
 Phrack 기사에서는 이 소켓을 통해 통신하는 백도어의 작동 방식을 상세히 설명합니다. 우리 분석에서는 시스템에 백도어를 초기화하는 단계를 넘어서는 자세히 조사하지 않았으며, 이는 곧 논의할 내용입니다.
 
@@ -221,7 +221,7 @@ Phrack 기사에서는 이 소켓을 통해 통신하는 백도어의 작동 방
 
 백도어 자체는 아래 도움말 메뉴에서 확인할 수 있듯이 기본적이면서도 강력한 기능을 갖추고 있습니다:
 
-![Korean backdoor commands.](data:image/png;base64...)
+![Korean backdoor commands.](../images/phrack-rootkit-assets/image011.png)
 
 기본 명령어는 다음과 같습니다:
 
@@ -235,11 +235,11 @@ Phrack 기사에서는 이 소켓을 통해 통신하는 백도어의 작동 방
 
 백도어 바이너리는 ***/usr/include/tracker-fs/tracker-efs***에 위치합니다. 활성화되면 숨겨진 프로세스로 실행되며 ***ps***와 같은 시스템 명령어로 확인할 수 없습니다. 또한 ***ss***와 같은 도구에서 네트워크 포트 활동을 숨깁니다. 아래는 모든 활성 포트 프로세스를 목록으로 표시하는 ***ss*** 명령어의 출력 결과입니다. 항목 중 하나는 프로세스 데이터가 완전히 누락되어 있으며, 이는 활성 백도어입니다.
 
-![스크린샷, 텍스트이(가) 표시된 사진  AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](data:image/png;base64...)
+![스크린샷, 텍스트이(가) 표시된 사진  AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](../images/phrack-rootkit-assets/image12.png)
 
 시스템 명령어로 프로세스가 숨겨져 있지만, Sandfly는 실제로 이를 완전히 노출(de-cloak)시킵니다.
 
-![텍스트, 스크린샷, 소프트웨어, 멀티미디어 소프트웨어이(가) 표시된 사진  AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](data:image/png;base64...)
+![텍스트, 스크린샷, 소프트웨어, 멀티미디어 소프트웨어이(가) 표시된 사진  AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](../images/phrack-rootkit-assets/image13.png)
 
 **백도어 포렌식 방지**
 
@@ -247,7 +247,7 @@ Phrack 기사에서는 이 소켓을 통해 통신하는 백도어의 작동 방
 
 [sandfly-processdecloak GitHub 리포지토리](https://github.com/sandflysecurity/sandfly-processdecloak)
 
-![De-cloaking hidden Linux process with sandfly-processdecloak](data:image/png;base64...)
+![De-cloaking hidden Linux process with sandfly-processdecloak](../images/phrack-rootkit-assets/image013.png)
 
 숨겨진(cloaked) PID를 얻으면 다음 명령어로 프로세스 환경을 확인할 수 있습니다:
 
@@ -255,11 +255,11 @@ Phrack 기사에서는 이 소켓을 통해 통신하는 백도어의 작동 방
 
 숨겨진 프로세스(PID 2533)의 출력은 아래와 같이 이력 파일을 ***/dev/null***로 설정하는 의심스러운 환경 변수 설정을 보여줍니다.
 
-![Suspicious anti-forensics process environment data.](data:image/png;base64...)
+![Suspicious anti-forensics process environment data.](../images/phrack-rootkit-assets/image14.png)
 
 아래는 Sandfly가 보고한 활성 백도어의 포렌식 방지 기능입니다. 백도어 프로세스에 의해 생성된 쉘은 포렌식 방지 기능을 상속받습니다.
 
-![Backdoor anti-forensics detected.](data:image/png;base64...)
+![Backdoor anti-forensics detected.](../images/phrack-rootkit-assets/image15.png)
 
 **백도어 멀티-Hop, SOCKS5 프록시 및 파일 유틸리티**
 
@@ -267,29 +267,29 @@ Phrack 기사에서는 이 소켓을 통해 통신하는 백도어의 작동 방
 
 아래는 ***trans***명령어의 도움말입니다. 공격자가 시스템 간 이동을 위해 사용할 수 있는 흥미로운 매개변수가 여러 개 있습니다. 포트 노크 및 프로토콜 유형 변경 등이 포함됩니다. 이 메커니즘을 통해 공격자는 감염된 호스트에 흔적을 남기지 않고 스텔스 루트킷을 사용하여 시스템 간 이동이 가능합니다.
 
-![Lateral movement features in the backdoor.](data:image/png;base64...)
+![Lateral movement features in the backdoor.](../images/phrack-rootkit-assets/image015.png)
 
 마찬가지로, SOCKS5 옵션에도 공격자가 활용할 수 있는 명령어가 있습니다:
 
-![스크린샷이(가) 표시된 사진  AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](data:image/png;base64...)
+![스크린샷이(가) 표시된 사진  AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](../images/phrack-rootkit-assets/image16.png)
 
 **백도어 쉘**
 
 호스트에서 쉘을 실행하여 영향을 받은 시스템을 직접 공격할 수 있는 옵션도 있습니다.
 
-![Shell with timing option for packets.](data:image/png;base64...)
+![Shell with timing option for packets.](../images/phrack-rootkit-assets/image17.png)
 
 쉘에는 패킷 스트림을 지연시키는 흥미로운 **“-t”** 옵션이 있습니다. 이는 상태 기반 네트워크 모니터링 규칙을 회피하거나 다중 Hop 연결에서의 타임아웃을 방지하기 위한 목적일 수 있습니다.
 
 쉘이 실행되면 백도어 부모 프로세스의 일부로 숨겨집니다. 이를 다시 노출하려면 Sandfly와 같은 특수 도구나 위에서 언급된 무료 프로세스 노출 도구가 필요합니다.
 
-![Sandfly de-cloaks hidden backdoor shell.](data:image/png;base64...)
+![Sandfly de-cloaks hidden backdoor shell.](../images/phrack-rootkit-assets/image017.png)
 
 **Sandfly의 AI 분석 활용**
 
 위 내용은 많은 정보를 포함하고 있지만, 최근 Sandfly 5.5에 AI LLM 통합을 도입했습니다. 에이전트 없는 Linux 포렌식 데이터는 우수하며, 이는 주요 LLM 제공업체 및 온프레미스 솔루션에서 매우 우수한 분석 결과를 제공합니다. 아래는 루트킷 경고에 대한 AI 분석 결과로, 발생 중인 상황을 정확히 요약한 내용입니다. 고객들은 이 기능을 사용하여 경고 분류(triage)에 도움을 받으시기를 권장합니다.
 
-![Sandfly's AI Analyst provides powerful results.](data:image/png;base64...)
+![Sandfly's AI Analyst provides powerful results.](../images/phrack-rootkit-assets/image18.png)
 
 **감염된 시스템 정리**
 
